@@ -1,0 +1,28 @@
+<ul class="emo_title">
+    <span>อารมณ์ <i class='icon-angle-right'></i></span>
+    <li class='active'><a [href]="'#emojiHistory'+target" aria-controls="emojiHistory" role="tab" data-toggle="tab">ที่ใช้บ่อย</a></li>
+    <li><a [href]="'#emojiconservice'+target" (click)="preLoadEmoji(target)" aria-controls="emojiconservice" role="tab" data-toggle="tab">สัญลักษณ์</a></li>
+</ul> 
+<div class='response_emo tab-content'>
+    <div [attr.id]="'emojiHistory'+target" class='tab-pane active' role="tabpanel">
+        <ul class='emoticons' [attr.id]="'history'+target"  style='font-size:16px;'></ul>
+    </div>
+    
+    <div [attr.id]="'emojiconservice'+target" class='tab-pane' role="tabpanel">
+        <div class='repo'>
+            <ul [attr.id]="'respond'+target" class='emoticons' style='font-size:16px;'></ul>
+        </div>
+        <div class='emo_menu'>
+            <ul id="category-filters" class="category-filters">
+                <li><a id="filter-people" (click)="filterByCat(target,'people')" href="javascript:void(0);" class="active" title="People"><i class="icon-people"></i></a></li>
+                <li><a id="filter-nature" (click)="filterByCat(target,'nature')"  href="javascript:void(0);" title="Nature"><i class="icon-nature"></i></a></li>
+                <li><a id="filter-food" (click)="filterByCat(target,'food')" href="javascript:void(0);" title="Food and drink"><i class="icon-food"></i></a></li>
+                <li><a id="filter-objects" (click)="filterByCat(target,'objects')" href="javascript:void(0);" title="Gadgets"><i class="icon-apple"></i></a></li>
+                <li><a id="filter-activity" (click)="filterByCat(target,'activity')" href="javascript:void(0);" title="Activity"><i class="icon-activity"></i></a></li>
+                <li><a id="filter-travel" (click)="filterByCat(target,'travel')" href="javascript:void(0);" title="Travel and places"><i class="icon-travel"></i></a></li>
+                <li><a id="filter-flags" (click)="filterByCat(target,'flags')" href="javascript:void(0);" title="Flags"><i class="icon-flags"></i></a></li>
+                <li><a id="filter-symbols" (click)="filterByCat(target,'symbols')" href="javascript:void(0);" title="Objects and symbols"><i class="icon-objects"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</div>

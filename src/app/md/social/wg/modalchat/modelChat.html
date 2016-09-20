@@ -1,0 +1,41 @@
+
+<div [attr.class]='gid' >
+                <div class='overlay_dialog'>
+                   <div class='bzn_dialog' style='min-height: 90px;'>
+                        <div class='preload_dialog'></div>
+                       <div class='fade_dialog'>
+                            
+                            <div class='inner_gray clearfix'>
+                                <div class='inner_gray_text'>
+                                    ตั้งค่ากลุ่มสนทนา
+                                </div>
+                                <div class='inner_gray_close_button'>
+                                    <a href='javascript:void(0)' (click)="closeModal(gid)" role='button' title='Close'>×</a>
+                                </div>
+                                <!--class='customdialog_close' data-id='{{gid}}'-->
+                            </div>
+                            <div class='inner_body'>
+                                <div class='inner_body_content p12'>
+                                    <form method='post' enctype='multipart/form-data' action='https://services.bazarn.com/chat/uploadGroup' class='uploadForm ng-pristine ng-valid'>
+                                        <div class='group_av_Upload' ng-init='imgGroup = getPicuteGroup(\"\")'>
+                                            <input type='hidden' name='gid' value='577cb3696f0c8bb04e430bbe'>
+                                            <input type='hidden' name='df' ng-value='df' value=''>
+                                            <img ng-src='https://im.bazarn.com/90x90/assets/images/blank_user.png' src='https://im.bazarn.com/90x90/assets/images/blank_user100.png'>
+                                            <input type='file' name='file' class='upload_av' onchange='angular.element(this).scope().submitUpload()' accept='image/png, image/jpg, image/jpeg'>
+                                        </div>
+                                    </form>
+                                    <div class='ex_upload'>คลิ๊กที่รูปภาพเพื่อเปลี่ยนโลโก้ของกลุ่ม</div>
+                                    <div class='input_group'>
+                                        <label>ชื่อกลุ่ม</label>
+                                        <div ng-init='group_name = \"56e27a6af0d71dd71b8b4567-1467790185\"'>
+                                            <input type='text' class='group_name ng-pristine ng-untouched ng-valid ng-not-empty' name='group_name' ng-model='group_name' placeholder='ตั้งชื่อกลุ่ม'>
+                                            <button class='submit_button' ng-click='updateGroup(\"577cb3696f0c8bb04e430bbe\")'>อัพเดท</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+           </div>

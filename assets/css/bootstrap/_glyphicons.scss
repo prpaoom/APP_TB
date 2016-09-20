@@ -1,0 +1,902 @@
+//
+// Glyphicons for Bootstrap
+//
+// Since icons are fonts, they can be placed anywhere text is placed and are
+// thus automatically sized to match the surrounding child. To use, create an
+// inline element with the appropriate classes, like so:
+//
+// <a href="#"><span class="glyphicon glyphicon-star"></span> Star</a>
+
+@at-root {
+  // Import the fonts
+  @font-face {
+    font-family: 'ibzn';
+    src: url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.eot'), '#{$icon-font-path}#{$icon-font-name}.eot'));
+    src: url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.eot?#iefix'), '#{$icon-font-path}#{$icon-font-name}.eot?#iefix')) format('embedded-opentype'),
+         url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.woff2'), '#{$icon-font-path}#{$icon-font-name}.woff2')) format('woff2'),
+         url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.woff'), '#{$icon-font-path}#{$icon-font-name}.woff')) format('woff'),
+         url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.ttf'), '#{$icon-font-path}#{$icon-font-name}.ttf')) format('truetype'),
+         url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.svg##{$icon-font-svg-id}'), '#{$icon-font-path}#{$icon-font-name}.svg##{$icon-font-svg-id}')) format('svg');
+  }
+}
+
+
+@mixin ibzn-font() {
+    display: inline-block;
+    font-family: $ibzn-font-name;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-decoration: inherit;
+    text-rendering: optimizeLegibility;
+    text-transform: none;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+}
+$ibzn-css-prefix: "ibzn";
+$ibzn-font-name: "ibzn";
+$ibzn-font-path: "../fonts";
+
+$ibzn-var-activity-feed: "\f100";
+$ibzn-var-activity-feed-2: "\f101";
+$ibzn-var-activity-feed-filled: "\f102";
+$ibzn-var-activity-grid: "\f103";
+$ibzn-var-activity-grid-filled: "\f104";
+$ibzn-var-add-link: "\f105";
+$ibzn-var-address-book: "\f106";
+$ibzn-var-address-book-filled: "\f107";
+$ibzn-var-advertising: "\f108";
+$ibzn-var-advertising-filled: "\f109";
+$ibzn-var-apartment-filled: "\f10a";
+$ibzn-var-approval: "\f10b";
+$ibzn-var-approval-2: "\f10c";
+$ibzn-var-approval-filled: "\f10d";
+$ibzn-var-attach: "\f10e";
+$ibzn-var-attach-filled: "\f10f";
+$ibzn-var-attention: "\f110";
+$ibzn-var-attention-filled: "\f111";
+$ibzn-var-back: "\f112";
+$ibzn-var-banknotes: "\f113";
+$ibzn-var-banknotes-2: "\f114";
+$ibzn-var-banknotes-filled: "\f115";
+$ibzn-var-bar-chart: "\f116";
+$ibzn-var-bar-chart-filled: "\f117";
+$ibzn-var-barcode: "\f118";
+$ibzn-var-beer: "\f119";
+$ibzn-var-beer-filled: "\f11a";
+$ibzn-var-best-seller: "\f11b";
+$ibzn-var-best-seller-filled: "\f11c";
+$ibzn-var-bicycle: "\f11d";
+$ibzn-var-birthday-cake: "\f11e";
+$ibzn-var-birthday-cake-filled: "\f11f";
+$ibzn-var-blog: "\f120";
+$ibzn-var-blog-filled: "\f121";
+$ibzn-var-book-shelf-filled: "\f122";
+$ibzn-var-bookmark-ribbon: "\f123";
+$ibzn-var-bookmark-ribbon-filled: "\f124";
+$ibzn-var-briefcase: "\f125";
+$ibzn-var-briefcase-filled: "\f126";
+$ibzn-var-bullish: "\f127";
+$ibzn-var-bullish-filled: "\f128";
+$ibzn-var-business: "\f129";
+$ibzn-var-business-filled: "\f12a";
+$ibzn-var-bzn: "\f12b";
+$ibzn-var-cafe: "\f12c";
+$ibzn-var-cafe-2: "\f12d";
+$ibzn-var-calendar: "\f12e";
+$ibzn-var-calendar-filled: "\f12f";
+$ibzn-var-cancel: "\f130";
+$ibzn-var-cancel-filled: "\f131";
+$ibzn-var-car-insurance-card: "\f132";
+$ibzn-var-car-insurance-card-filled: "\f133";
+$ibzn-var-cash-register: "\f134";
+$ibzn-var-cash-register-filled: "\f135";
+$ibzn-var-center-direction: "\f136";
+$ibzn-var-chat: "\f137";
+$ibzn-var-check: "\f138";
+$ibzn-var-check-filled: "\f139";
+$ibzn-var-checked: "\f13a";
+$ibzn-var-checked-filled: "\f13b";
+$ibzn-var-class: "\f13c";
+$ibzn-var-class-filled: "\f13d";
+$ibzn-var-clock: "\f13e";
+$ibzn-var-clock-filled: "\f13f";
+$ibzn-var-clover: "\f140";
+$ibzn-var-coins: "\f141";
+$ibzn-var-coins-filled: "\f142";
+$ibzn-var-collage: "\f143";
+$ibzn-var-collage-filled: "\f144";
+$ibzn-var-collapse-arrow: "\f145";
+$ibzn-var-combo-chart-filled: "\f146";
+$ibzn-var-comments: "\f147";
+$ibzn-var-compact-camera: "\f148";
+$ibzn-var-compact-camera-filled: "\f149";
+$ibzn-var-conference-background-selected-filled: "\f14a";
+$ibzn-var-conference-foreground-selected-filled: "\f14b";
+$ibzn-var-contact-card: "\f14c";
+$ibzn-var-contact-card-filled: "\f14d";
+$ibzn-var-court-judge-filled: "\f14e";
+$ibzn-var-cutting-coupon: "\f14f";
+$ibzn-var-cutting-coupon-filled: "\f150";
+$ibzn-var-delete: "\f151";
+$ibzn-var-delete-2: "\f152";
+$ibzn-var-delete-filled: "\f153";
+$ibzn-var-delete-filled-2: "\f154";
+$ibzn-var-details-popup: "\f155";
+$ibzn-var-details-popup-filled: "\f156";
+$ibzn-var-diploma: "\f157";
+$ibzn-var-diploma-filled: "\f158";
+$ibzn-var-discount: "\f159";
+$ibzn-var-discount-filled: "\f15a";
+$ibzn-var-download: "\f15b";
+$ibzn-var-download-filled: "\f15c";
+$ibzn-var-download-from-the-cloud: "\f15d";
+$ibzn-var-edit: "\f15e";
+$ibzn-var-electrical-sensor: "\f15f";
+$ibzn-var-email-filled: "\f160";
+$ibzn-var-enter: "\f161";
+$ibzn-var-exit: "\f162";
+$ibzn-var-expand-arrow: "\f163";
+$ibzn-var-facebook: "\f164";
+$ibzn-var-faq: "\f165";
+$ibzn-var-faq-filled: "\f166";
+$ibzn-var-favorite-folder: "\f167";
+$ibzn-var-filled-flag-2: "\f168";
+$ibzn-var-finish-flag: "\f169";
+$ibzn-var-forward: "\f16a";
+$ibzn-var-free-shipping: "\f16b";
+$ibzn-var-free-shipping-filled: "\f16c";
+$ibzn-var-geo-fence: "\f16d";
+$ibzn-var-gift: "\f16e";
+$ibzn-var-gift-filled: "\f16f";
+$ibzn-var-globe: "\f170";
+$ibzn-var-goal: "\f171";
+$ibzn-var-good-quality: "\f172";
+$ibzn-var-good-quality-filled: "\f173";
+$ibzn-var-google-news: "\f174";
+$ibzn-var-google-news-filled: "\f175";
+$ibzn-var-handshake: "\f176";
+$ibzn-var-handshake-filled: "\f177";
+$ibzn-var-hashtag-large: "\f178";
+$ibzn-var-hashtag-large-filled: "\f179";
+$ibzn-var-hashtags-list: "\f17a";
+$ibzn-var-hashtags-list-filled: "\f17b";
+$ibzn-var-hearts-filled: "\f17c";
+$ibzn-var-high-importance: "\f17d";
+$ibzn-var-high-importance-filled: "\f17e";
+$ibzn-var-hint: "\f17f";
+$ibzn-var-hint-filled: "\f180";
+$ibzn-var-home: "\f181";
+$ibzn-var-hospital: "\f182";
+$ibzn-var-hospital-filled: "\f183";
+$ibzn-var-id-card: "\f184";
+$ibzn-var-id-card-filled: "\f185";
+$ibzn-var-in-transit: "\f186";
+$ibzn-var-in-transit-filled: "\f187";
+$ibzn-var-info: "\f188";
+$ibzn-var-info-2: "\f189";
+$ibzn-var-info-filled: "\f18a";
+$ibzn-var-invoice: "\f18b";
+$ibzn-var-invoice-filled: "\f18c";
+$ibzn-var-land-sales-filled: "\f18d";
+$ibzn-var-like: "\f18e";
+$ibzn-var-like-filled: "\f18f";
+$ibzn-var-line-me: "\f190";
+$ibzn-var-line-me-2: "\f191";
+$ibzn-var-link: "\f192";
+$ibzn-var-literature: "\f193";
+$ibzn-var-literature-filled: "\f194";
+$ibzn-var-lock: "\f195";
+$ibzn-var-lock-filled: "\f196";
+$ibzn-var-lol: "\f197";
+$ibzn-var-lol-filled: "\f198";
+$ibzn-var-loyalty-card: "\f199";
+$ibzn-var-loyalty-card-filled: "\f19a";
+$ibzn-var-market-square: "\f19b";
+$ibzn-var-market-square-filled: "\f19c";
+$ibzn-var-meal: "\f19d";
+$ibzn-var-meal-filled: "\f19e";
+$ibzn-var-medium-icons: "\f19f";
+$ibzn-var-medium-icons-filled: "\f1a0";
+$ibzn-var-menu-2-filled: "\f1a1";
+$ibzn-var-menu-filled: "\f1a2";
+$ibzn-var-message-filled: "\f1a3";
+$ibzn-var-minus: "\f1a4";
+$ibzn-var-minus-filled: "\f1a5";
+$ibzn-var-more: "\f1a6";
+$ibzn-var-more-filled: "\f1a7";
+$ibzn-var-new: "\f1a8";
+$ibzn-var-new-filled: "\f1a9";
+$ibzn-var-new-post: "\f1aa";
+$ibzn-var-new-post-filled: "\f1ab";
+$ibzn-var-ok: "\f1ac";
+$ibzn-var-ok-filled: "\f1ad";
+$ibzn-var-page-overview-3: "\f1ae";
+$ibzn-var-page-overview-3-filled: "\f1af";
+$ibzn-var-paid: "\f1b0";
+$ibzn-var-paid-filled: "\f1b1";
+$ibzn-var-password-check: "\f1b2";
+$ibzn-var-password-check-filled: "\f1b3";
+$ibzn-var-paypal: "\f1b4";
+$ibzn-var-paypal-2: "\f1b5";
+$ibzn-var-plus: "\f1b6";
+$ibzn-var-plus-filled: "\f1b7";
+$ibzn-var-poor-quality: "\f1b8";
+$ibzn-var-poor-quality-filled: "\f1b9";
+$ibzn-var-price-tag: "\f1ba";
+$ibzn-var-price-tag-filled: "\f1bb";
+$ibzn-var-print: "\f1bc";
+$ibzn-var-print-filled: "\f1bd";
+$ibzn-var-private-2: "\f1be";
+$ibzn-var-private-2-2: "\f1bf";
+$ibzn-var-private-2-filled: "\f1c0";
+$ibzn-var-prototype: "\f1c1";
+$ibzn-var-prototype-filled: "\f1c2";
+$ibzn-var-put-in-motion: "\f1c3";
+$ibzn-var-qr-code: "\f1c4";
+$ibzn-var-qr-code-filled: "\f1c5";
+$ibzn-var-rating: "\f1c6";
+$ibzn-var-rating-filled: "\f1c7";
+$ibzn-var-ratings: "\f1c8";
+$ibzn-var-ratings-filled: "\f1c9";
+$ibzn-var-refresh: "\f1ca";
+$ibzn-var-restaurant: "\f1cb";
+$ibzn-var-restaurant-filled: "\f1cc";
+$ibzn-var-restaurant-pickup: "\f1cd";
+$ibzn-var-restaurant-pickup-filled: "\f1ce";
+$ibzn-var-resume: "\f1cf";
+$ibzn-var-resume-filled: "\f1d0";
+$ibzn-var-retweet: "\f1d1";
+$ibzn-var-reviewer-male: "\f1d2";
+$ibzn-var-reviewer-male-filled: "\f1d3";
+$ibzn-var-right-2-filled: "\f1d4";
+$ibzn-var-rss: "\f1d5";
+$ibzn-var-rss-filled: "\f1d6";
+$ibzn-var-sale: "\f1d7";
+$ibzn-var-sale-filled: "\f1d8";
+$ibzn-var-scooter-filled: "\f1d9";
+$ibzn-var-search: "\f1da";
+$ibzn-var-sell: "\f1db";
+$ibzn-var-sell-filled: "\f1dc";
+$ibzn-var-settings-filled: "\f1dd";
+$ibzn-var-shake-phone: "\f1de";
+$ibzn-var-shake-phone-filled: "\f1df";
+$ibzn-var-share: "\f1e0";
+$ibzn-var-share-2: "\f1e1";
+$ibzn-var-shipped: "\f1e2";
+$ibzn-var-shipped-filled: "\f1e3";
+$ibzn-var-shop: "\f1e4";
+$ibzn-var-shop-filled: "\f1e5";
+$ibzn-var-shopping-bag: "\f1e6";
+$ibzn-var-shopping-bag-filled: "\f1e7";
+$ibzn-var-shopping-basket: "\f1e8";
+$ibzn-var-skype: "\f1e9";
+$ibzn-var-small-business: "\f1ea";
+$ibzn-var-small-business-filled: "\f1eb";
+$ibzn-var-sms: "\f1ec";
+$ibzn-var-speech-bubble: "\f1ed";
+$ibzn-var-speech-bubble-filled: "\f1ee";
+$ibzn-var-stack-of-photos: "\f1ef";
+$ibzn-var-stack-of-photos-filled: "\f1f0";
+$ibzn-var-stadium: "\f1f1";
+$ibzn-var-stadium-filled: "\f1f2";
+$ibzn-var-star-filled: "\f1f3";
+$ibzn-var-start: "\f1f4";
+$ibzn-var-start-filled: "\f1f5";
+$ibzn-var-statistics: "\f1f6";
+$ibzn-var-statistics-2: "\f1f7";
+$ibzn-var-statistics-filled: "\f1f8";
+$ibzn-var-strike: "\f1f9";
+$ibzn-var-strike-filled: "\f1fa";
+$ibzn-var-synchronize: "\f1fb";
+$ibzn-var-synchronize-filled: "\f1fc";
+$ibzn-var-tag-merg: "\f1fd";
+$ibzn-var-template-filled: "\f1fe";
+$ibzn-var-top-menu: "\f1ff";
+$ibzn-var-top-menu-filled: "\f200";
+$ibzn-var-upload-to-the-cloud: "\f201";
+$ibzn-var-user: "\f202";
+$ibzn-var-user-female-body: "\f203";
+$ibzn-var-user-female-body-filled: "\f204";
+$ibzn-var-user-filled: "\f205";
+$ibzn-var-user-group-man-man-filled: "\f206";
+$ibzn-var-user-menu-male: "\f207";
+$ibzn-var-user-menu-male-filled: "\f208";
+$ibzn-var-versions: "\f209";
+$ibzn-var-versions-filled: "\f20a";
+$ibzn-var-very-popular-topic: "\f20b";
+$ibzn-var-video-message: "\f20c";
+$ibzn-var-video-message-filled: "\f20d";
+$ibzn-var-video-playlist-filled: "\f20e";
+$ibzn-var-vip: "\f20f";
+$ibzn-var-vip-filled: "\f210";
+$ibzn-var-visit: "\f211";
+$ibzn-var-visit-filled: "\f212";
+$ibzn-var-wallet: "\f213";
+$ibzn-var-wallet-2: "\f214";
+$ibzn-var-warning-shield: "\f215";
+$ibzn-var-webcam-man-filled: "\f216";
+$ibzn-var-wedding-photo: "\f217";
+$ibzn-var-wedding-photo-2: "\f218";
+$ibzn-var-wink: "\f219";
+$ibzn-var-wink-2: "\f21a";
+$ibzn-var-wink-filled: "\f21b";
+// Catchall baseclass
+
+[data-icon]:before { content: attr(data-icon); }
+
+[data-ibzn]:before,
+.ibzn-activity-feed:before,
+.ibzn-activity-feed-2:before,
+.ibzn-activity-feed-filled:before,
+.ibzn-activity-grid:before,
+.ibzn-activity-grid-filled:before,
+.ibzn-add-link:before,
+.ibzn-address-book:before,
+.ibzn-address-book-filled:before,
+.ibzn-advertising:before,
+.ibzn-advertising-filled:before,
+.ibzn-apartment-filled:before,
+.ibzn-approval:before,
+.ibzn-approval-2:before,
+.ibzn-approval-filled:before,
+.ibzn-attach:before,
+.ibzn-attach-filled:before,
+.ibzn-attention:before,
+.ibzn-attention-filled:before,
+.ibzn-back:before,
+.ibzn-banknotes:before,
+.ibzn-banknotes-2:before,
+.ibzn-banknotes-filled:before,
+.ibzn-bar-chart:before,
+.ibzn-bar-chart-filled:before,
+.ibzn-barcode:before,
+.ibzn-beer:before,
+.ibzn-beer-filled:before,
+.ibzn-best-seller:before,
+.ibzn-best-seller-filled:before,
+.ibzn-bicycle:before,
+.ibzn-birthday-cake:before,
+.ibzn-birthday-cake-filled:before,
+.ibzn-blog:before,
+.ibzn-blog-filled:before,
+.ibzn-book-shelf-filled:before,
+.ibzn-bookmark-ribbon:before,
+.ibzn-bookmark-ribbon-filled:before,
+.ibzn-briefcase:before,
+.ibzn-briefcase-filled:before,
+.ibzn-bullish:before,
+.ibzn-bullish-filled:before,
+.ibzn-business:before,
+.ibzn-business-filled:before,
+.ibzn-bzn:before,
+.ibzn-cafe:before,
+.ibzn-cafe-2:before,
+.ibzn-calendar:before,
+.ibzn-calendar-filled:before,
+.ibzn-cancel:before,
+.ibzn-cancel-filled:before,
+.ibzn-car-insurance-card:before,
+.ibzn-car-insurance-card-filled:before,
+.ibzn-cash-register:before,
+.ibzn-cash-register-filled:before,
+.ibzn-center-direction:before,
+.ibzn-chat:before,
+.ibzn-check:before,
+.ibzn-check-filled:before,
+.ibzn-checked:before,
+.ibzn-checked-filled:before,
+.ibzn-class:before,
+.ibzn-class-filled:before,
+.ibzn-clock:before,
+.ibzn-clock-filled:before,
+.ibzn-clover:before,
+.ibzn-coins:before,
+.ibzn-coins-filled:before,
+.ibzn-collage:before,
+.ibzn-collage-filled:before,
+.ibzn-collapse-arrow:before,
+.ibzn-combo-chart-filled:before,
+.ibzn-comments:before,
+.ibzn-compact-camera:before,
+.ibzn-compact-camera-filled:before,
+.ibzn-conference-background-selected-filled:before,
+.ibzn-conference-foreground-selected-filled:before,
+.ibzn-contact-card:before,
+.ibzn-contact-card-filled:before,
+.ibzn-court-judge-filled:before,
+.ibzn-cutting-coupon:before,
+.ibzn-cutting-coupon-filled:before,
+.ibzn-delete:before,
+.ibzn-delete-2:before,
+.ibzn-delete-filled:before,
+.ibzn-delete-filled-2:before,
+.ibzn-details-popup:before,
+.ibzn-details-popup-filled:before,
+.ibzn-diploma:before,
+.ibzn-diploma-filled:before,
+.ibzn-discount:before,
+.ibzn-discount-filled:before,
+.ibzn-download:before,
+.ibzn-download-filled:before,
+.ibzn-download-from-the-cloud:before,
+.ibzn-edit:before,
+.ibzn-electrical-sensor:before,
+.ibzn-email-filled:before,
+.ibzn-enter:before,
+.ibzn-exit:before,
+.ibzn-expand-arrow:before,
+.ibzn-facebook:before,
+.ibzn-faq:before,
+.ibzn-faq-filled:before,
+.ibzn-favorite-folder:before,
+.ibzn-filled-flag-2:before,
+.ibzn-finish-flag:before,
+.ibzn-forward:before,
+.ibzn-free-shipping:before,
+.ibzn-free-shipping-filled:before,
+.ibzn-geo-fence:before,
+.ibzn-gift:before,
+.ibzn-gift-filled:before,
+.ibzn-globe:before,
+.ibzn-goal:before,
+.ibzn-good-quality:before,
+.ibzn-good-quality-filled:before,
+.ibzn-google-news:before,
+.ibzn-google-news-filled:before,
+.ibzn-handshake:before,
+.ibzn-handshake-filled:before,
+.ibzn-hashtag-large:before,
+.ibzn-hashtag-large-filled:before,
+.ibzn-hashtags-list:before,
+.ibzn-hashtags-list-filled:before,
+.ibzn-hearts-filled:before,
+.ibzn-high-importance:before,
+.ibzn-high-importance-filled:before,
+.ibzn-hint:before,
+.ibzn-hint-filled:before,
+.ibzn-home:before,
+.ibzn-hospital:before,
+.ibzn-hospital-filled:before,
+.ibzn-id-card:before,
+.ibzn-id-card-filled:before,
+.ibzn-in-transit:before,
+.ibzn-in-transit-filled:before,
+.ibzn-info:before,
+.ibzn-info-2:before,
+.ibzn-info-filled:before,
+.ibzn-invoice:before,
+.ibzn-invoice-filled:before,
+.ibzn-land-sales-filled:before,
+.ibzn-like:before,
+.ibzn-like-filled:before,
+.ibzn-line-me:before,
+.ibzn-line-me-2:before,
+.ibzn-link:before,
+.ibzn-literature:before,
+.ibzn-literature-filled:before,
+.ibzn-lock:before,
+.ibzn-lock-filled:before,
+.ibzn-lol:before,
+.ibzn-lol-filled:before,
+.ibzn-loyalty-card:before,
+.ibzn-loyalty-card-filled:before,
+.ibzn-market-square:before,
+.ibzn-market-square-filled:before,
+.ibzn-meal:before,
+.ibzn-meal-filled:before,
+.ibzn-medium-icons:before,
+.ibzn-medium-icons-filled:before,
+.ibzn-menu-2-filled:before,
+.ibzn-menu-filled:before,
+.ibzn-message-filled:before,
+.ibzn-minus:before,
+.ibzn-minus-filled:before,
+.ibzn-more:before,
+.ibzn-more-filled:before,
+.ibzn-new:before,
+.ibzn-new-filled:before,
+.ibzn-new-post:before,
+.ibzn-new-post-filled:before,
+.ibzn-ok:before,
+.ibzn-ok-filled:before,
+.ibzn-page-overview-3:before,
+.ibzn-page-overview-3-filled:before,
+.ibzn-paid:before,
+.ibzn-paid-filled:before,
+.ibzn-password-check:before,
+.ibzn-password-check-filled:before,
+.ibzn-paypal:before,
+.ibzn-paypal-2:before,
+.ibzn-plus:before,
+.ibzn-plus-filled:before,
+.ibzn-poor-quality:before,
+.ibzn-poor-quality-filled:before,
+.ibzn-price-tag:before,
+.ibzn-price-tag-filled:before,
+.ibzn-print:before,
+.ibzn-print-filled:before,
+.ibzn-private-2:before,
+.ibzn-private-2-2:before,
+.ibzn-private-2-filled:before,
+.ibzn-prototype:before,
+.ibzn-prototype-filled:before,
+.ibzn-put-in-motion:before,
+.ibzn-qr-code:before,
+.ibzn-qr-code-filled:before,
+.ibzn-rating:before,
+.ibzn-rating-filled:before,
+.ibzn-ratings:before,
+.ibzn-ratings-filled:before,
+.ibzn-refresh:before,
+.ibzn-restaurant:before,
+.ibzn-restaurant-filled:before,
+.ibzn-restaurant-pickup:before,
+.ibzn-restaurant-pickup-filled:before,
+.ibzn-resume:before,
+.ibzn-resume-filled:before,
+.ibzn-retweet:before,
+.ibzn-reviewer-male:before,
+.ibzn-reviewer-male-filled:before,
+.ibzn-right-2-filled:before,
+.ibzn-rss:before,
+.ibzn-rss-filled:before,
+.ibzn-sale:before,
+.ibzn-sale-filled:before,
+.ibzn-scooter-filled:before,
+.ibzn-search:before,
+.ibzn-sell:before,
+.ibzn-sell-filled:before,
+.ibzn-settings-filled:before,
+.ibzn-shake-phone:before,
+.ibzn-shake-phone-filled:before,
+.ibzn-share:before,
+.ibzn-share-2:before,
+.ibzn-shipped:before,
+.ibzn-shipped-filled:before,
+.ibzn-shop:before,
+.ibzn-shop-filled:before,
+.ibzn-shopping-bag:before,
+.ibzn-shopping-bag-filled:before,
+.ibzn-shopping-basket:before,
+.ibzn-skype:before,
+.ibzn-small-business:before,
+.ibzn-small-business-filled:before,
+.ibzn-sms:before,
+.ibzn-speech-bubble:before,
+.ibzn-speech-bubble-filled:before,
+.ibzn-stack-of-photos:before,
+.ibzn-stack-of-photos-filled:before,
+.ibzn-stadium:before,
+.ibzn-stadium-filled:before,
+.ibzn-star-filled:before,
+.ibzn-start:before,
+.ibzn-start-filled:before,
+.ibzn-statistics:before,
+.ibzn-statistics-2:before,
+.ibzn-statistics-filled:before,
+.ibzn-strike:before,
+.ibzn-strike-filled:before,
+.ibzn-synchronize:before,
+.ibzn-synchronize-filled:before,
+.ibzn-tag-merg:before,
+.ibzn-template-filled:before,
+.ibzn-top-menu:before,
+.ibzn-top-menu-filled:before,
+.ibzn-upload-to-the-cloud:before,
+.ibzn-user:before,
+.ibzn-user-female-body:before,
+.ibzn-user-female-body-filled:before,
+.ibzn-user-filled:before,
+.ibzn-user-group-man-man-filled:before,
+.ibzn-user-menu-male:before,
+.ibzn-user-menu-male-filled:before,
+.ibzn-versions:before,
+.ibzn-versions-filled:before,
+.ibzn-very-popular-topic:before,
+.ibzn-video-message:before,
+.ibzn-video-message-filled:before,
+.ibzn-video-playlist-filled:before,
+.ibzn-vip:before,
+.ibzn-vip-filled:before,
+.ibzn-visit:before,
+.ibzn-visit-filled:before,
+.ibzn-wallet:before,
+.ibzn-wallet-2:before,
+.ibzn-warning-shield:before,
+.ibzn-webcam-man-filled:before,
+.ibzn-wedding-photo:before,
+.ibzn-wedding-photo-2:before,
+.ibzn-wink:before,
+.ibzn-wink-2:before,
+.ibzn-wink-filled:before,
+{ @include ibzn-font; }
+
+[data-ibzn]:before { content: attr(data-ibzn); }
+
+.ibzn-activity-feed:before { content: $ibzn-var-activity-feed; }
+.ibzn-activity-feed-2:before { content: $ibzn-var-activity-feed-2; }
+.ibzn-activity-feed-filled:before { content: $ibzn-var-activity-feed-filled; }
+.ibzn-activity-grid:before { content: $ibzn-var-activity-grid; }
+.ibzn-activity-grid-filled:before { content: $ibzn-var-activity-grid-filled; }
+.ibzn-add-link:before { content: $ibzn-var-add-link; }
+.ibzn-address-book:before { content: $ibzn-var-address-book; }
+.ibzn-address-book-filled:before { content: $ibzn-var-address-book-filled; }
+.ibzn-advertising:before { content: $ibzn-var-advertising; }
+.ibzn-advertising-filled:before { content: $ibzn-var-advertising-filled; }
+.ibzn-apartment-filled:before { content: $ibzn-var-apartment-filled; }
+.ibzn-approval:before { content: $ibzn-var-approval; }
+.ibzn-approval-2:before { content: $ibzn-var-approval-2; }
+.ibzn-approval-filled:before { content: $ibzn-var-approval-filled; }
+.ibzn-attach:before { content: $ibzn-var-attach; }
+.ibzn-attach-filled:before { content: $ibzn-var-attach-filled; }
+.ibzn-attention:before { content: $ibzn-var-attention; }
+.ibzn-attention-filled:before { content: $ibzn-var-attention-filled; }
+.ibzn-back:before { content: $ibzn-var-back; }
+.ibzn-banknotes:before { content: $ibzn-var-banknotes; }
+.ibzn-banknotes-2:before { content: $ibzn-var-banknotes-2; }
+.ibzn-banknotes-filled:before { content: $ibzn-var-banknotes-filled; }
+.ibzn-bar-chart:before { content: $ibzn-var-bar-chart; }
+.ibzn-bar-chart-filled:before { content: $ibzn-var-bar-chart-filled; }
+.ibzn-barcode:before { content: $ibzn-var-barcode; }
+.ibzn-beer:before { content: $ibzn-var-beer; }
+.ibzn-beer-filled:before { content: $ibzn-var-beer-filled; }
+.ibzn-best-seller:before { content: $ibzn-var-best-seller; }
+.ibzn-best-seller-filled:before { content: $ibzn-var-best-seller-filled; }
+.ibzn-bicycle:before { content: $ibzn-var-bicycle; }
+.ibzn-birthday-cake:before { content: $ibzn-var-birthday-cake; }
+.ibzn-birthday-cake-filled:before { content: $ibzn-var-birthday-cake-filled; }
+.ibzn-blog:before { content: $ibzn-var-blog; }
+.ibzn-blog-filled:before { content: $ibzn-var-blog-filled; }
+.ibzn-book-shelf-filled:before { content: $ibzn-var-book-shelf-filled; }
+.ibzn-bookmark-ribbon:before { content: $ibzn-var-bookmark-ribbon; }
+.ibzn-bookmark-ribbon-filled:before { content: $ibzn-var-bookmark-ribbon-filled; }
+.ibzn-briefcase:before { content: $ibzn-var-briefcase; }
+.ibzn-briefcase-filled:before { content: $ibzn-var-briefcase-filled; }
+.ibzn-bullish:before { content: $ibzn-var-bullish; }
+.ibzn-bullish-filled:before { content: $ibzn-var-bullish-filled; }
+.ibzn-business:before { content: $ibzn-var-business; }
+.ibzn-business-filled:before { content: $ibzn-var-business-filled; }
+.ibzn-bzn:before { content: $ibzn-var-bzn; }
+.ibzn-cafe:before { content: $ibzn-var-cafe; }
+.ibzn-cafe-2:before { content: $ibzn-var-cafe-2; }
+.ibzn-calendar:before { content: $ibzn-var-calendar; }
+.ibzn-calendar-filled:before { content: $ibzn-var-calendar-filled; }
+.ibzn-cancel:before { content: $ibzn-var-cancel; }
+.ibzn-cancel-filled:before { content: $ibzn-var-cancel-filled; }
+.ibzn-car-insurance-card:before { content: $ibzn-var-car-insurance-card; }
+.ibzn-car-insurance-card-filled:before { content: $ibzn-var-car-insurance-card-filled; }
+.ibzn-cash-register:before { content: $ibzn-var-cash-register; }
+.ibzn-cash-register-filled:before { content: $ibzn-var-cash-register-filled; }
+.ibzn-center-direction:before { content: $ibzn-var-center-direction; }
+.ibzn-chat:before { content: $ibzn-var-chat; }
+.ibzn-check:before { content: $ibzn-var-check; }
+.ibzn-check-filled:before { content: $ibzn-var-check-filled; }
+.ibzn-checked:before { content: $ibzn-var-checked; }
+.ibzn-checked-filled:before { content: $ibzn-var-checked-filled; }
+.ibzn-class:before { content: $ibzn-var-class; }
+.ibzn-class-filled:before { content: $ibzn-var-class-filled; }
+.ibzn-clock:before { content: $ibzn-var-clock; }
+.ibzn-clock-filled:before { content: $ibzn-var-clock-filled; }
+.ibzn-clover:before { content: $ibzn-var-clover; }
+.ibzn-coins:before { content: $ibzn-var-coins; }
+.ibzn-coins-filled:before { content: $ibzn-var-coins-filled; }
+.ibzn-collage:before { content: $ibzn-var-collage; }
+.ibzn-collage-filled:before { content: $ibzn-var-collage-filled; }
+.ibzn-collapse-arrow:before { content: $ibzn-var-collapse-arrow; }
+.ibzn-combo-chart-filled:before { content: $ibzn-var-combo-chart-filled; }
+.ibzn-comments:before { content: $ibzn-var-comments; }
+.ibzn-compact-camera:before { content: $ibzn-var-compact-camera; }
+.ibzn-compact-camera-filled:before { content: $ibzn-var-compact-camera-filled; }
+.ibzn-conference-background-selected-filled:before { content: $ibzn-var-conference-background-selected-filled; }
+.ibzn-conference-foreground-selected-filled:before { content: $ibzn-var-conference-foreground-selected-filled; }
+.ibzn-contact-card:before { content: $ibzn-var-contact-card; }
+.ibzn-contact-card-filled:before { content: $ibzn-var-contact-card-filled; }
+.ibzn-court-judge-filled:before { content: $ibzn-var-court-judge-filled; }
+.ibzn-cutting-coupon:before { content: $ibzn-var-cutting-coupon; }
+.ibzn-cutting-coupon-filled:before { content: $ibzn-var-cutting-coupon-filled; }
+.ibzn-delete:before { content: $ibzn-var-delete; }
+.ibzn-delete-2:before { content: $ibzn-var-delete-2; }
+.ibzn-delete-filled:before { content: $ibzn-var-delete-filled; }
+.ibzn-delete-filled-2:before { content: $ibzn-var-delete-filled-2; }
+.ibzn-details-popup:before { content: $ibzn-var-details-popup; }
+.ibzn-details-popup-filled:before { content: $ibzn-var-details-popup-filled; }
+.ibzn-diploma:before { content: $ibzn-var-diploma; }
+.ibzn-diploma-filled:before { content: $ibzn-var-diploma-filled; }
+.ibzn-discount:before { content: $ibzn-var-discount; }
+.ibzn-discount-filled:before { content: $ibzn-var-discount-filled; }
+.ibzn-download:before { content: $ibzn-var-download; }
+.ibzn-download-filled:before { content: $ibzn-var-download-filled; }
+.ibzn-download-from-the-cloud:before { content: $ibzn-var-download-from-the-cloud; }
+.ibzn-edit:before { content: $ibzn-var-edit; }
+.ibzn-electrical-sensor:before { content: $ibzn-var-electrical-sensor; }
+.ibzn-email-filled:before { content: $ibzn-var-email-filled; }
+.ibzn-enter:before { content: $ibzn-var-enter; }
+.ibzn-exit:before { content: $ibzn-var-exit; }
+.ibzn-expand-arrow:before { content: $ibzn-var-expand-arrow; }
+.ibzn-facebook:before { content: $ibzn-var-facebook; }
+.ibzn-faq:before { content: $ibzn-var-faq; }
+.ibzn-faq-filled:before { content: $ibzn-var-faq-filled; }
+.ibzn-favorite-folder:before { content: $ibzn-var-favorite-folder; }
+.ibzn-filled-flag-2:before { content: $ibzn-var-filled-flag-2; }
+.ibzn-finish-flag:before { content: $ibzn-var-finish-flag; }
+.ibzn-forward:before { content: $ibzn-var-forward; }
+.ibzn-free-shipping:before { content: $ibzn-var-free-shipping; }
+.ibzn-free-shipping-filled:before { content: $ibzn-var-free-shipping-filled; }
+.ibzn-geo-fence:before { content: $ibzn-var-geo-fence; }
+.ibzn-gift:before { content: $ibzn-var-gift; }
+.ibzn-gift-filled:before { content: $ibzn-var-gift-filled; }
+.ibzn-globe:before { content: $ibzn-var-globe; }
+.ibzn-goal:before { content: $ibzn-var-goal; }
+.ibzn-good-quality:before { content: $ibzn-var-good-quality; }
+.ibzn-good-quality-filled:before { content: $ibzn-var-good-quality-filled; }
+.ibzn-google-news:before { content: $ibzn-var-google-news; }
+.ibzn-google-news-filled:before { content: $ibzn-var-google-news-filled; }
+.ibzn-handshake:before { content: $ibzn-var-handshake; }
+.ibzn-handshake-filled:before { content: $ibzn-var-handshake-filled; }
+.ibzn-hashtag-large:before { content: $ibzn-var-hashtag-large; }
+.ibzn-hashtag-large-filled:before { content: $ibzn-var-hashtag-large-filled; }
+.ibzn-hashtags-list:before { content: $ibzn-var-hashtags-list; }
+.ibzn-hashtags-list-filled:before { content: $ibzn-var-hashtags-list-filled; }
+.ibzn-hearts-filled:before { content: $ibzn-var-hearts-filled; }
+.ibzn-high-importance:before { content: $ibzn-var-high-importance; }
+.ibzn-high-importance-filled:before { content: $ibzn-var-high-importance-filled; }
+.ibzn-hint:before { content: $ibzn-var-hint; }
+.ibzn-hint-filled:before { content: $ibzn-var-hint-filled; }
+.ibzn-home:before { content: $ibzn-var-home; }
+.ibzn-hospital:before { content: $ibzn-var-hospital; }
+.ibzn-hospital-filled:before { content: $ibzn-var-hospital-filled; }
+.ibzn-id-card:before { content: $ibzn-var-id-card; }
+.ibzn-id-card-filled:before { content: $ibzn-var-id-card-filled; }
+.ibzn-in-transit:before { content: $ibzn-var-in-transit; }
+.ibzn-in-transit-filled:before { content: $ibzn-var-in-transit-filled; }
+.ibzn-info:before { content: $ibzn-var-info; }
+.ibzn-info-2:before { content: $ibzn-var-info-2; }
+.ibzn-info-filled:before { content: $ibzn-var-info-filled; }
+.ibzn-invoice:before { content: $ibzn-var-invoice; }
+.ibzn-invoice-filled:before { content: $ibzn-var-invoice-filled; }
+.ibzn-land-sales-filled:before { content: $ibzn-var-land-sales-filled; }
+.ibzn-like:before { content: $ibzn-var-like; }
+.ibzn-like-filled:before { content: $ibzn-var-like-filled; }
+.ibzn-line-me:before { content: $ibzn-var-line-me; }
+.ibzn-line-me-2:before { content: $ibzn-var-line-me-2; }
+.ibzn-link:before { content: $ibzn-var-link; }
+.ibzn-literature:before { content: $ibzn-var-literature; }
+.ibzn-literature-filled:before { content: $ibzn-var-literature-filled; }
+.ibzn-lock:before { content: $ibzn-var-lock; }
+.ibzn-lock-filled:before { content: $ibzn-var-lock-filled; }
+.ibzn-lol:before { content: $ibzn-var-lol; }
+.ibzn-lol-filled:before { content: $ibzn-var-lol-filled; }
+.ibzn-loyalty-card:before { content: $ibzn-var-loyalty-card; }
+.ibzn-loyalty-card-filled:before { content: $ibzn-var-loyalty-card-filled; }
+.ibzn-market-square:before { content: $ibzn-var-market-square; }
+.ibzn-market-square-filled:before { content: $ibzn-var-market-square-filled; }
+.ibzn-meal:before { content: $ibzn-var-meal; }
+.ibzn-meal-filled:before { content: $ibzn-var-meal-filled; }
+.ibzn-medium-icons:before { content: $ibzn-var-medium-icons; }
+.ibzn-medium-icons-filled:before { content: $ibzn-var-medium-icons-filled; }
+.ibzn-menu-2-filled:before { content: $ibzn-var-menu-2-filled; }
+.ibzn-menu-filled:before { content: $ibzn-var-menu-filled; }
+.ibzn-message-filled:before { content: $ibzn-var-message-filled; }
+.ibzn-minus:before { content: $ibzn-var-minus; }
+.ibzn-minus-filled:before { content: $ibzn-var-minus-filled; }
+.ibzn-more:before { content: $ibzn-var-more; }
+.ibzn-more-filled:before { content: $ibzn-var-more-filled; }
+.ibzn-new:before { content: $ibzn-var-new; }
+.ibzn-new-filled:before { content: $ibzn-var-new-filled; }
+.ibzn-new-post:before { content: $ibzn-var-new-post; }
+.ibzn-new-post-filled:before { content: $ibzn-var-new-post-filled; }
+.ibzn-ok:before { content: $ibzn-var-ok; }
+.ibzn-ok-filled:before { content: $ibzn-var-ok-filled; }
+.ibzn-page-overview-3:before { content: $ibzn-var-page-overview-3; }
+.ibzn-page-overview-3-filled:before { content: $ibzn-var-page-overview-3-filled; }
+.ibzn-paid:before { content: $ibzn-var-paid; }
+.ibzn-paid-filled:before { content: $ibzn-var-paid-filled; }
+.ibzn-password-check:before { content: $ibzn-var-password-check; }
+.ibzn-password-check-filled:before { content: $ibzn-var-password-check-filled; }
+.ibzn-paypal:before { content: $ibzn-var-paypal; }
+.ibzn-paypal-2:before { content: $ibzn-var-paypal-2; }
+.ibzn-plus:before { content: $ibzn-var-plus; }
+.ibzn-plus-filled:before { content: $ibzn-var-plus-filled; }
+.ibzn-poor-quality:before { content: $ibzn-var-poor-quality; }
+.ibzn-poor-quality-filled:before { content: $ibzn-var-poor-quality-filled; }
+.ibzn-price-tag:before { content: $ibzn-var-price-tag; }
+.ibzn-price-tag-filled:before { content: $ibzn-var-price-tag-filled; }
+.ibzn-print:before { content: $ibzn-var-print; }
+.ibzn-print-filled:before { content: $ibzn-var-print-filled; }
+.ibzn-private-2:before { content: $ibzn-var-private-2; }
+.ibzn-private-2-2:before { content: $ibzn-var-private-2-2; }
+.ibzn-private-2-filled:before { content: $ibzn-var-private-2-filled; }
+.ibzn-prototype:before { content: $ibzn-var-prototype; }
+.ibzn-prototype-filled:before { content: $ibzn-var-prototype-filled; }
+.ibzn-put-in-motion:before { content: $ibzn-var-put-in-motion; }
+.ibzn-qr-code:before { content: $ibzn-var-qr-code; }
+.ibzn-qr-code-filled:before { content: $ibzn-var-qr-code-filled; }
+.ibzn-rating:before { content: $ibzn-var-rating; }
+.ibzn-rating-filled:before { content: $ibzn-var-rating-filled; }
+.ibzn-ratings:before { content: $ibzn-var-ratings; }
+.ibzn-ratings-filled:before { content: $ibzn-var-ratings-filled; }
+.ibzn-refresh:before { content: $ibzn-var-refresh; }
+.ibzn-restaurant:before { content: $ibzn-var-restaurant; }
+.ibzn-restaurant-filled:before { content: $ibzn-var-restaurant-filled; }
+.ibzn-restaurant-pickup:before { content: $ibzn-var-restaurant-pickup; }
+.ibzn-restaurant-pickup-filled:before { content: $ibzn-var-restaurant-pickup-filled; }
+.ibzn-resume:before { content: $ibzn-var-resume; }
+.ibzn-resume-filled:before { content: $ibzn-var-resume-filled; }
+.ibzn-retweet:before { content: $ibzn-var-retweet; }
+.ibzn-reviewer-male:before { content: $ibzn-var-reviewer-male; }
+.ibzn-reviewer-male-filled:before { content: $ibzn-var-reviewer-male-filled; }
+.ibzn-right-2-filled:before { content: $ibzn-var-right-2-filled; }
+.ibzn-rss:before { content: $ibzn-var-rss; }
+.ibzn-rss-filled:before { content: $ibzn-var-rss-filled; }
+.ibzn-sale:before { content: $ibzn-var-sale; }
+.ibzn-sale-filled:before { content: $ibzn-var-sale-filled; }
+.ibzn-scooter-filled:before { content: $ibzn-var-scooter-filled; }
+.ibzn-search:before { content: $ibzn-var-search; }
+.ibzn-sell:before { content: $ibzn-var-sell; }
+.ibzn-sell-filled:before { content: $ibzn-var-sell-filled; }
+.ibzn-settings-filled:before { content: $ibzn-var-settings-filled; }
+.ibzn-shake-phone:before { content: $ibzn-var-shake-phone; }
+.ibzn-shake-phone-filled:before { content: $ibzn-var-shake-phone-filled; }
+.ibzn-share:before { content: $ibzn-var-share; }
+.ibzn-share-2:before { content: $ibzn-var-share-2; }
+.ibzn-shipped:before { content: $ibzn-var-shipped; }
+.ibzn-shipped-filled:before { content: $ibzn-var-shipped-filled; }
+.ibzn-shop:before { content: $ibzn-var-shop; }
+.ibzn-shop-filled:before { content: $ibzn-var-shop-filled; }
+.ibzn-shopping-bag:before { content: $ibzn-var-shopping-bag; }
+.ibzn-shopping-bag-filled:before { content: $ibzn-var-shopping-bag-filled; }
+.ibzn-shopping-basket:before { content: $ibzn-var-shopping-basket; }
+.ibzn-skype:before { content: $ibzn-var-skype; }
+.ibzn-small-business:before { content: $ibzn-var-small-business; }
+.ibzn-small-business-filled:before { content: $ibzn-var-small-business-filled; }
+.ibzn-sms:before { content: $ibzn-var-sms; }
+.ibzn-speech-bubble:before { content: $ibzn-var-speech-bubble; }
+.ibzn-speech-bubble-filled:before { content: $ibzn-var-speech-bubble-filled; }
+.ibzn-stack-of-photos:before { content: $ibzn-var-stack-of-photos; }
+.ibzn-stack-of-photos-filled:before { content: $ibzn-var-stack-of-photos-filled; }
+.ibzn-stadium:before { content: $ibzn-var-stadium; }
+.ibzn-stadium-filled:before { content: $ibzn-var-stadium-filled; }
+.ibzn-star-filled:before { content: $ibzn-var-star-filled; }
+.ibzn-start:before { content: $ibzn-var-start; }
+.ibzn-start-filled:before { content: $ibzn-var-start-filled; }
+.ibzn-statistics:before { content: $ibzn-var-statistics; }
+.ibzn-statistics-2:before { content: $ibzn-var-statistics-2; }
+.ibzn-statistics-filled:before { content: $ibzn-var-statistics-filled; }
+.ibzn-strike:before { content: $ibzn-var-strike; }
+.ibzn-strike-filled:before { content: $ibzn-var-strike-filled; }
+.ibzn-synchronize:before { content: $ibzn-var-synchronize; }
+.ibzn-synchronize-filled:before { content: $ibzn-var-synchronize-filled; }
+.ibzn-tag-merg:before { content: $ibzn-var-tag-merg; }
+.ibzn-template-filled:before { content: $ibzn-var-template-filled; }
+.ibzn-top-menu:before { content: $ibzn-var-top-menu; }
+.ibzn-top-menu-filled:before { content: $ibzn-var-top-menu-filled; }
+.ibzn-upload-to-the-cloud:before { content: $ibzn-var-upload-to-the-cloud; }
+.ibzn-user:before { content: $ibzn-var-user; }
+.ibzn-user-female-body:before { content: $ibzn-var-user-female-body; }
+.ibzn-user-female-body-filled:before { content: $ibzn-var-user-female-body-filled; }
+.ibzn-user-filled:before { content: $ibzn-var-user-filled; }
+.ibzn-user-group-man-man-filled:before { content: $ibzn-var-user-group-man-man-filled; }
+.ibzn-user-menu-male:before { content: $ibzn-var-user-menu-male; }
+.ibzn-user-menu-male-filled:before { content: $ibzn-var-user-menu-male-filled; }
+.ibzn-versions:before { content: $ibzn-var-versions; }
+.ibzn-versions-filled:before { content: $ibzn-var-versions-filled; }
+.ibzn-very-popular-topic:before { content: $ibzn-var-very-popular-topic; }
+.ibzn-video-message:before { content: $ibzn-var-video-message; }
+.ibzn-video-message-filled:before { content: $ibzn-var-video-message-filled; }
+.ibzn-video-playlist-filled:before { content: $ibzn-var-video-playlist-filled; }
+.ibzn-vip:before { content: $ibzn-var-vip; }
+.ibzn-vip-filled:before { content: $ibzn-var-vip-filled; }
+.ibzn-visit:before { content: $ibzn-var-visit; }
+.ibzn-visit-filled:before { content: $ibzn-var-visit-filled; }
+.ibzn-wallet:before { content: $ibzn-var-wallet; }
+.ibzn-wallet-2:before { content: $ibzn-var-wallet-2; }
+.ibzn-warning-shield:before { content: $ibzn-var-warning-shield; }
+.ibzn-webcam-man-filled:before { content: $ibzn-var-webcam-man-filled; }
+.ibzn-wedding-photo:before { content: $ibzn-var-wedding-photo; }
+.ibzn-wedding-photo-2:before { content: $ibzn-var-wedding-photo-2; }
+.ibzn-wink:before { content: $ibzn-var-wink; }
+.ibzn-wink-2:before { content: $ibzn-var-wink-2; }
+.ibzn-wink-filled:before { content: $ibzn-var-wink-filled; }

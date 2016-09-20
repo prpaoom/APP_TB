@@ -1,0 +1,52 @@
+
+<div class="row">
+
+</div>
+<div class='auth-container' *ngIf="status == 'success'">
+    <div class='auth_center'>
+        <div class='auth_top'>
+            <span class='success'><i data-ibzn="&#xf13a;"></i></span>
+            <h1 class='auth_title'>การยืนยันอีเมล์สำเร็จ</h1>
+        </div>
+        <div class='clearfix'></div>
+        <div class='auth_helptext-tr'>
+            <p>ขอบคุณค่ะ</p>
+            <p>{{fullname}}</p>
+            <p>การยืนยันอีเมล์ของคุณได้รับการบันทึกแล้ว</p>
+            <!--<a href='./login' class='btn btn-md btn-primary'>เข้าใช้งานทันที</a>-->
+        </div>
+    </div>
+</div> 
+
+<div class='auth-container' *ngIf="status == 'error'">
+    <div class='auth_center'>
+        <div class='auth_top'>
+            <span class='error'><i data-ibzn="&#xf130;"></i></span>
+            <h1 class='auth_title'>การยืนยันอีเมล์ไม่สำเร็จ</h1>
+        </div>
+        <div class='clearfix'></div>
+        <div class='auth_helptext-tr'>
+            <p>การยืนยันอีเมล์ของคุณไม่ประสบผลสำเร็จ เนื่องจากว่ารหัสยืนยันได้หมดอายุ หรือ ถูกใช้งานแล้ว</p>
+            <p>แต่ถึงอย่างไรคุณสามารถร้องขอใหม่ได้</p>
+            <a [routerLink]="['/wall']" class='btn btn-md btn-default'>กลับสู่ระบบ</a>
+            <a [routerLink]="['/resend']" class='btn btn-md btn-primary'>ร้องขอใหม่</a>
+        </div>
+    </div>
+</div> <!-- case Error-->
+<script>
+    var data = {
+  // A labels array that can contain any sort of values
+  labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+  // Our series array that contains series objects or in this case series data arrays
+  series: [
+    [5, 2, 4, 2, 0]
+  ]
+};
+
+// Create a new line chart object where as first parameter we pass in a selector
+// that is resolving to our chart container element. The Second parameter
+// is the actual data object.
+new Chartist.Line('.ct-chart', data);
+</script>
+
+

@@ -1,0 +1,96 @@
+.sl_container{
+      width:100%;margin:auto auto;
+      &:after{display:table; clear:both; content:'';}
+    @media (min-width: 480px) {
+       width:480px;
+    }
+    @media (min-width: 768px) {
+       width:768px;
+    }
+    @media (min-width: 1024px) {
+       width:1024px;
+    }
+    @media (min-width: 1260px) {
+       left:50%;
+       transform: translateX(-100px);
+    }
+
+    //sl_left
+    @media (min-width: 1024px) {
+        .sl_left{
+            width:162px; display:block; float:left; height:auto; margin-right:11px;
+            background:transparent;position:fixed;
+        }
+    }
+    @media (max-width: 1023px) {
+        .sl_left{
+            width:200px; position:absolute; left:-200px; top:40px; height:calc(100vh - 40px);
+            z-index: 999; display:none; position:fixed; overflow-y: scroll; background:#fff;
+           
+        }
+        .sl_left_show{
+            left:0px;
+             @include animation('slide-leftmenu-in .5s');
+             @include boxshadow( 0, 4px , 5px , rgba(0,0,0,0.4));
+        }
+        .sl_left_hide{
+            left:-200px;
+             @include animation('slide-leftmenu-out .5s');
+             @include boxshadow( 0, 0px , 0px , rgba(0,0,0,0.4));
+        }
+        .sl_display{
+            display:block;
+        }
+    }
+    @include keyframes(slide-leftmenu-in) {
+      0% { left: -200px; }
+      100% { left: 0px; }
+    }
+    @include keyframes(slide-leftmenu-out) {
+      0% { left: 0px;}
+      100% { left: -200px; }
+    }
+
+    @include keyframes(slide-friendlist-in) {
+      0% { right: -200px; }
+      100% { right: 0px; }
+    }
+    @include keyframes(slide-friendlist-out) {
+      0% { right: 0px;}
+      100% { right: -200px; }
+    }
+
+    .sl_center{
+      width:100%; float:right; height:auto;
+      @media (min-width: 480px) {
+           width:480px;
+      }
+      @media (min-width: 768px) {
+           width:768px;
+      }
+      @media (min-width: 1024px) {
+           width:851px;
+      }
+      .sl_center_left{float:left;
+        width:100%; float:left;
+        @media (min-width: 768px) {
+            width:480px;
+        }
+        @media (min-width: 1024px) {
+            width:500px;
+        }
+        .sl_control{width:100%;}
+      }
+      .sl_center_right{
+        display:none;float:left; margin-left:11px;
+        @media (min-width: 768px) {
+            width:277px; display:block;
+        }
+        @media (min-width: 1024px) {
+          width:340px; display:block;
+        }
+
+        }
+    }
+
+}

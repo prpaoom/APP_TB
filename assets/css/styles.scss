@@ -1,0 +1,35 @@
+@import 'bootstrap';
+@import 'bourbon';
+@import 'font-awesome';
+@import 'social_layout';
+@import 'navbar';
+@import 'img';
+@import 'chat';
+@import 'tools';
+@import 'leftmenu';
+@import 'auth';
+@import 'dropzone';
+@import 'chatbox_widgets';
+@import 'bzn_dialog';
+@import 'sweet';
+@import 'photoswipe';
+
+
+.testBox{
+    width:100%; margin:0px auto;  background:#fff;
+    display:inline-block;  min-height:300px;
+    // border: 1px solid;
+    // border-color:#E5E6E9 #DFE0E4 #D0D1D5 #DFE0E4; 
+    position:relative;
+    //@include border-radius(2px);
+    &:after{content:''; clear:both; display:table;}
+}
+.bgg{background:#ccc; min-height:140px;}
+.fleft{height:800px;}
+.fcover{height:315px; margin-bottom:11px; background:#fff;}
+.fbox{height:200px; margin-bottom:11px; background:#fff;}
+.fpost{height:120px; margin-bottom:11px; background:#fff;}
+.ffeed{min-height:300px; margin-bottom:11px; background:#fff;}
+.ffilter{height:40px; margin-bottom:11px; background:#fff;}
+
+

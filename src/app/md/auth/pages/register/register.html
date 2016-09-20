@@ -1,0 +1,145 @@
+<!--<<<<<<< HEAD
+
+
+
+
+    <div class="row" *ngIf="!checkUserLogin">
+        
+        <div class="col-md-3"></div> 
+        <div class="col-md-6">
+            <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Register</h3>
+        </div>
+        <div class="panel-body">
+            
+            <form [formGroup]="formRegister" (ngSubmit)="register()">
+                <div *ngIf="!formRegister.controls.email.valid && formRegister.controls.email.value.length >= 1 " class="alert alert-danger" role="alert">รูปแบบ อีเมล์ ไม่ถูกต้อง</div>
+                <div *ngIf="!formRegister.controls.password.valid && formRegister.controls.password.value.length >= 1 " class="alert alert-danger" role="alert">รูปแบบ รหัสผ่าน ไม่ถูกต้อง ควรจะมี ตัวเลข รหัสผ่านต้อง 8-20 ตัวขึ้นไป</div>
+                <div *ngIf="formRegister.controls.confirmPassword.value != formRegister.controls.password.value && formRegister.controls.confirmPassword.value.length >= 1" class="alert alert-danger" role="alert">รหัสผ่านไม่ตรงกัน</div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="text" formControlName="email" class="form-control"   id="exampleInputEmail1"    placeholder="Email" >
+                </div>
+               
+               
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" formControlName="password" class="form-control"  id="exampleInputPassword1"   placeholder="Password">
+                </div>
+                 
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password confirm</label>
+                    <input type="password" class="form-control" formControlName="confirmPassword"   id="exampleInputPassword1"    placeholder="confirmPassword">
+                </div>
+                
+            
+                <button type="submit"  class="btn btn-primary">บันทึก</button>
+            </form>
+             <div *ngIf="error " class="alert alert-danger" role="alert">email ถูกใช้งานแล้ว</div>
+             <div class="alert alert-success" *ngIf="success" role="alert">สำมะเร็จ</div>
+             Country : {{location}}
+            {{message}}
+        </div>
+        </div>
+           
+           
+           
+        </div>
+    </div>
+    <div class="row" *ngIf="checkUserLogin">
+        <div class="col-md-12">
+             <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Profile Update</h3>
+                </div>
+                <div class="panel-body">
+                     <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">ชื่อ</label>
+                            <input type="text" class="form-control" [(ngModel)]="fname" [ngModelOptions]="{standalone: true}" id="exampleInputEmail1" placeholder="ชื่อ">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">นามสกุล</label>
+                            <input type="text" class="form-control" [(ngModel)]="lname" [ngModelOptions]="{standalone: true}" id="exampleInputEmail1" placeholder="นามสกุล">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">เพศ</label>
+                            <div class="col-lg-10">
+                                <div class="radio">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="1" (click)="gender = 1" checked="">
+                                    หญิง
+                                </label>
+                                </div>
+                                <div class="radio">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="0" (click)="gender = 0">
+                                        ชาย
+                                </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" (click)="updateName()" class="btn btn-default">UPDATE</button>
+                    </form>
+                    
+                    {{message}}
+                </div>
+           
+           
+            
+        </div>
+    </div>
+=======-->
+<div class='auth-container'>
+    <div class='auth_center'>
+        <div class='auth_inner'>
+            <div class='auth_top'>
+                <div class='auth_logo'>
+                    <img src='{{site_url}}/assets/images/logo-30-yr.png'>
+                </div>
+                <h1 class='auth_title'>สมัครใช้งงาน</h1>
+            </div>
+            <facebook [title_button]="'สมัครใช้งานด้วย Facebook'"></facebook>
+            <!--<div class='auth_fb'>
+                <button class='btn btn-md btn-fb'><i data-ibzn="&#xf164;"></i>สมัครใช้งานด้วย Facebook</button>
+            </div>-->
+            <div class='auth_or'>
+                <span>หรือ</span>
+            </div>
+            <form [formGroup]="formRegister" (ngSubmit)="register()">
+            <div class='auth_form'>
+                <div class='input_group'>
+                    <label>อีเมล์</label>
+                    <input type='text' formControlName="email" class='auth_input'>
+                    <p class='helpbox'><span *ngIf="!formRegister.controls.email.valid && formRegister.controls.email.value.length >= 1 " class="err">รูปแบบ อีเมล์ ไม่ถูกต้อง</span></p>
+                    
+                </div>
+                <div class='input_group'>
+                    <label>รหัสผ่าน</label>
+                    <input type='password' formControlName="password" class='auth_input'>
+                    <p class='helpbox'><span *ngIf="!formRegister.controls.password.valid && formRegister.controls.password.value.length >= 1" class="err">รูปแบบ รหัสผ่าน ไม่ถูกต้อง ควรจะมี ตัวเลข รหัสผ่านต้อง 8-20 ตัวขึ้นไป</span></p>
+                </div>
+                <div class='input_group'>
+                    <label>ยืนยันรหัสผ่านนี้</label>
+                    <input type='password' formControlName="confirmPassword" class='auth_input'>
+                    <p class='helpbox'><span *ngIf="formRegister.controls.confirmPassword.value != formRegister.controls.password.value && formRegister.controls.confirmPassword.value.length >= 1" class="err">รหัสผ่านไม่ตรงกัน</span></p>
+                </div>
+                {{message}}
+                <div class='input_group w50'>
+                    <button type="submit" class='btn btn-primary'>ดำเนินการต่อ</button>
+                </div>
+                <div class='input_group w50'></div>
+            </div>
+            </form>
+            
+        </div>
+        <div class='auth_helplink'>
+            <a href='#'><i data-ibzn="&#xf176;"></i>ข้อตกลงการใช้งาน</a>
+            <a href='#'><i data-ibzn="&#xf1be;"></i>ความเป็นส่วนตัว</a>
+        </div>
+    </div>
+</div>
+
+

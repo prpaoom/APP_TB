@@ -1,0 +1,160 @@
+// Mixins
+// --------------------------------------------------
+
+// Utilities
+@import "mixins/hide-text";
+@import "mixins/opacity";
+@import "mixins/image";
+@import "mixins/labels";
+@import "mixins/reset-filter";
+@import "mixins/resize";
+@import "mixins/responsive-visibility";
+@import "mixins/size";
+@import "mixins/tab-focus";
+@import "mixins/reset-text";
+@import "mixins/text-emphasis";
+@import "mixins/text-overflow";
+@import "mixins/vendor-prefixes";
+
+// Components
+@import "mixins/alerts";
+@import "mixins/buttons";
+@import "mixins/panels";
+@import "mixins/pagination";
+@import "mixins/list-group";
+@import "mixins/nav-divider";
+@import "mixins/forms";
+@import "mixins/progress-bar";
+@import "mixins/table-row";
+
+// Skins
+@import "mixins/background-variant";
+@import "mixins/border-radius";
+@import "mixins/gradients";
+
+// Layout
+@import "mixins/clearfix";
+@import "mixins/center-block";
+@import "mixins/nav-vertical-align";
+@import "mixins/grid-framework";
+@import "mixins/grid";
+
+@mixin prefix($property, $value) {
+  -webkit-#{$property}: #{$value};
+   -khtml-#{$property}: #{$value};
+     -moz-#{$property}: #{$value};
+      -ms-#{$property}: #{$value};
+       -o-#{$property}: #{$value};
+          #{$property}: #{$value};
+}
+@mixin transition($properties...) {
+
+  @if length($properties) >= 1 {
+    @include prefix('transition', $properties);
+  }
+
+  @else {
+    @include prefix('transition',  "all 0.2s ease-in-out 0s");
+  }
+}
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+
+/// Animation
+/// @param {*} $str - name duration timing-function delay iteration-count direction fill-mode play-state ([http://www.w3schools.com/cssref/css3_pr_animation.asp](http://www.w3schools.com/cssref/css3_pr_animation.asp))
+/// @require {mixin} prefix
+
+@mixin animation($str) {
+  @include prefix('animation', $str);
+}
+
+@mixin boxshadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4), $inset: "") {
+  @if ($inset != "") {
+    @include prefix('box-shadow', $inset $x $y $blur $color);
+  } @else {
+    @include prefix('box-shadow', $x $y $blur $color);
+  }
+}
+@mixin textoverflow(){
+  text-overflow: ellipsis; overflow:hidden; width:100%;white-space: nowrap;
+}
+
+@mixin appearance($value) {
+  //@include _bourbon-deprecate-for-prefixing("appearance");
+  @include prefixer(appearance, $value, webkit moz ms o spec);
+}
+@mixin limitLine($n:1){
+  display: -webkit-box;
+  -webkit-line-clamp: $n;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin scbar(){
+  @media (min-width: 1025px) {
+        &::-moz-scrollbar {
+            width: 6px;
+            height: 3px;
+        }
+        &::-webkit-scrollbar {
+            width: 6px;
+            height: 3px;
+        }
+
+        &::-moz-scrollbar-button:start:decrement,
+        &::-moz-scrollbar-button:start:decrement {
+            height: 0px;
+            display: block;
+            background-color: transparent;//black;
+        }
+        &::-webkit-scrollbar-button:start:decrement,
+        &::-webkit-scrollbar-button:end:increment {
+            height: 0px;
+            display: block;
+            background-color: transparent;//black;
+        }
+        
+        &::-moz-scrollbar-track-piece {
+            background-color:transparent;
+        }
+        &::-webkit-scrollbar-track-piece {
+            background-color: transparent; 
+        }
+
+        &::-moz-scrollbar-thumb:vertical {
+            height: 50px;
+            background-color: $nav-bg-dark;
+        }    
+        &::-webkit-scrollbar-thumb:vertical {
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        &::-moz-scrollbar-thumb:horizontal {
+            width: 50px;
+            background-color:rgba(0, 0, 0, 0.5); 
+        }    
+        &::-webkit-scrollbar-thumb:horizontal {
+            width: 50px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    }
+}

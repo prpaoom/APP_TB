@@ -1,0 +1,48 @@
+<div class='auth-container'>
+    <div class='auth_center'>
+        <div class='auth_inner'>
+            <div class='auth_top'>
+                <span class='success'><i data-ibzn="&#xf13a;"></i></span>
+                <h1 class='auth_title'>การสร้างบัญชีสำเร็จ</h1>
+            </div>
+            <div class='auth_fb'>
+                <p>เพื่อสร้างข้อมูลที่สมบูรณ์ โปรดให้ข้อมูลเพิ่มเติม</p>
+            </div>
+            <div class='auth_form'>
+                <form [formGroup]="formProfile" (ngSubmit)="updateProfile()">
+                <div class='input_group'>
+                    <label>ชื่อของคุณ</label>
+                    <input type='text' formControlName="first_name" class='auth_input'>
+                    <p class='helpbox'><span class="err" *ngIf="!formProfile.controls.first_name.valid && formProfile.controls.first_name.value.length >= 1">กรอกชื่อ 4 - 25 ตัวขึ้นไป</span></p>
+                </div>
+                <div class='input_group'>
+                    <label>นามสกุลของคุณ</label>
+                    <input type='text' formControlName="last_name"   class='auth_input'>
+                    <p class='helpbox'><span class="err" *ngIf="!formProfile.controls.last_name.valid && formProfile.controls.last_name.value.length >= 1">กรอกนามสกุล 4 - 25 ตัวขึ้นไป</span></p>
+                </div>
+                <div class='input_group_chr'>
+                    <h4>เพศ</h4>
+                    <label>
+                    <input type="radio" class="option-input radio" name="gender"  (click)="gender = 0" />
+                        ชาย
+                    </label>
+                    <label>
+                    <input type="radio" class="option-input radio" name="gender"   (click)="gender = 1" checked/>
+                        หญิง
+                    </label>
+                </div>
+                <p class='helpbox'><span class="err">{{message}}</span></p>
+                <div class='input_group w50'>
+                    <button type="submit" class='btn btn-primary'>เข้าสู่ระบบทันที</button>
+                </div>
+                 
+                <div class='input_group w50'></div>
+                </form>
+            </div>
+        </div>
+        <div class='auth_helplink'>
+            <a href='#'><i data-ibzn="&#xf176;"></i>ข้อตกลงการใช้งาน</a>
+            <a href='#'><i data-ibzn="&#xf1be;"></i>ความเป็นส่วนตัว</a>
+        </div>
+    </div>
+</div>

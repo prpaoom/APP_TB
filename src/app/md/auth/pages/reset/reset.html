@@ -1,0 +1,20 @@
+
+<div class="panel-body"> 
+    <div class="row">
+        <div class="col-md-4">
+            <h1>Reset Password</h1>
+            <form>
+                <div class="form-group">
+                    <label for="exampleInputEmail">Password</label>
+                    <input type="password" class="form-control" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail">Password Confirm</label>
+                    <input type="password" class="form-control" [(ngModel)]="passwordConfirm" [ngModelOptions]="{standalone: true}" placeholder="Password Confirm">
+                </div>
+                <button type="submit" (click)="submitReset()" class="btn btn-default">Submit</button>
+            </form> 
+            {{message}}
+        </div>
+    </div> 
+</div>

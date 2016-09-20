@@ -1,0 +1,592 @@
+
+<div class='sg_friend_nav_chat' >
+    <h3 class='title'>แนะนำเพื่อน</h3>
+    <ul class='sg_friend_list'>
+        <li>
+            <a (click) = "clicking()">
+                <img src='https://im.bazarn.com/c50x50/uploads/avatar_56f3de62f0d71dc4688b4567_1800357965.jpg' width='40px' height='40px'/>
+            </a>
+        </li>
+        <li>
+            <a href='#'>
+                <img src='https://im.bazarn.com/c50x50/uploads/avatar_56f3de62f0d71dc4688b4567_1800357965.jpg' width='40px' height='40px'/>
+            </a>
+        </li>
+        <li>
+            <a href='#'>
+                <img src='https://im.bazarn.com/c50x50/uploads/avatar_56f3de62f0d71dc4688b4567_1800357965.jpg' width='40px' height='40px'/>
+            </a>
+        </li>
+        <li>
+            <a href='#'>
+                <img src='https://im.bazarn.com/c50x50/uploads/avatar_56f3de62f0d71dc4688b4567_1800357965.jpg' width='40px' height='40px'/>
+            </a>
+        </li>
+        <li>
+            <a href='#'>
+                <img src='https://im.bazarn.com/c50x50/uploads/avatar_56f3de62f0d71dc4688b4567_1800357965.jpg' width='40px' height='40px'/>
+            </a>
+        </li>
+        <li>
+            <a href='#'>
+                <img src='https://im.bazarn.com/c50x50/uploads/avatar_56f3de62f0d71dc4688b4567_1800357965.jpg' width='40px' height='40px'/>
+            </a>
+        </li>
+        <li>
+            <a href='#'>
+                <img src='https://im.bazarn.com/c50x50/uploads/avatar_56f3de62f0d71dc4688b4567_1800357965.jpg' width='40px' height='40px'/>
+            </a>
+        </li>
+        <li>
+            <a href='#'>
+                <img src='https://im.bazarn.com/c50x50/uploads/avatar_56f3de62f0d71dc4688b4567_1800357965.jpg' width='40px' height='40px'/>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+<div class='search_friend'>
+    <!--#searchFriend-->
+    <input type='text' [(ngModel)]="searchFriend"  (keyup)="0" name='find_friend' class='input_findfriend' placeholder="ค้นหาเพื่อน หรือ กลุ่ม ...">
+    <div class='action_sgfriend dropdown'>
+    <button data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i data-ibzn="&#xf1dd;"></i>
+    </button>
+    <ul class='dropdown-menu dropdown-menu-right'>
+        <li><a href='javascript:void(0);' (click)="modalChatSetting()">ตั้งค่าการสนทนา</a></li>
+        <li><a href='javascript:void(0);' (click)="modalCreateNewGroupChat()">สร้างกลุ่มใหม่</a></li>
+    </ul>
+    </div>
+</div>
+<!-- Nav tabs -->
+<ul class=" tab-head" role="tablist">
+    <li role="presentation" class="active"><a href="#current" aria-controls="current" role="tab" data-toggle="tab"><i class='fa fa-clock-o'></i></a></li>
+    <li role="presentation"><a href="#friend" aria-controls="friend" role="tab" data-toggle="tab">เพื่อน</a></li>
+    <li role="presentation"><a href="#group" aria-controls="group" role="tab" data-toggle="tab">กลุ่ม</a></li>
+    <li role="presentation"><a href="#relationship" aria-controls="relationship" role="tab" data-toggle="tab">ติดต่อค้าขาย</a></li>
+</ul>
+<!-- Tab panes -->
+<div class="tab-content chatlistScrollY">
+    <div role="tabpanel" class="fllist tab-pane fade in active" id="current">
+        <ul infinite class='inchatlist' (endVisible)="loadMore()">
+            <li *ngFor="let f of listFriend1 | filter:searchFriend ">
+                <a href='javascript:void(0);' (click)="setBox(f)">
+                    <div class='list_av'>
+                        <img src='https://im.bazarn.com/90x90/{{f.picture}}' width='32px' height='32px'>
+                    </div>
+                    
+                    <div class='list_name'>
+                        <div class='name'>{{f.name}}</div>
+                        <div class='somedetails'><div class='online'></div><span>1 นาที</span></div>
+                    </div>
+                    <div class='has_count'>
+                        <div class='btn_badge'>12</div>
+                    </div>
+                </a>
+               
+            </li>
+             <div infinite-end>
+                 <div *ngIf="loadingInProgress">Loading</div>
+   	             <div *ngIf="endOfList">End Of List</div>
+             </div>
+        </ul>
+    </div>
+    <div role="tabpanel" class="fllist tab-pane fade" id="friend">
+        <ul  class='inchatlist' >
+            <li *ngFor="let f of listFriend | filter:searchFriend  ">
+                <a href='javascript:void(0);' (click)="setBox(f)">
+                    <div class='list_av'>
+                        <img src='https://im.bazarn.com/90x90/{{f.picture}}' width='32px' height='32px'>
+                    </div>
+                    
+                    <div class='list_name'>
+                        <div class='name'>{{f.name}}</div>
+                        <div class='somedetails'><div class='online'></div><span>1 นาที</span></div>
+                    </div>
+                    <div class='has_count'>
+                        <div class='btn_badge'>12</div>
+                    </div>
+                </a>
+            </li>
+             <div infinite-end>
+                 <div *ngIf="loadingInProgress">Loading</div>
+   	             <div *ngIf="endOfList">End Of List</div>
+             </div>
+        </ul>
+    </div>
+    <div role="tabpanel" class="fllist tab-pane fade" id="group">
+        <ul class='inchatlist' >
+            <li *ngFor="let g of listGroup | filter:searchFriend ">
+                <a href='javascript:void(0);' (click)="setBox(g)">
+                    <div class='list_av group'>
+                        <!--https://im.bazarn.com/90x90{{getPicuteGroup(g.picture)}}-->
+                        <img [src]='getPicuteGroup(g.picture) ' width='32px' height='32px'/>
+                    </div>
+                    <div class='list_name'>
+                        <div class='name'>{{g.name}}</div>
+                        <div class='somedetails'><div class='online'></div><span>1 นาที</span></div>
+                    </div>
+                    <div class='has_count'>
+                        <div class='btn_badge'>12</div>
+                    </div>
+                </a>
+            </li>
+            
+            
+        </ul>
+    </div>
+    <div role="tabpanel" class="fllist tab-pane fade" id="relationship">
+        <ul class='inchatlist'>
+            <li *ngFor="let a of listActivities | filter:searchFriend ">
+                <a href='javascript:void(0);' (click)="setBox(a)">
+                    <div class='list_av'>
+                        <img src='https://im.bazarn.com/c32x32/uploads/shoplogo_57048d04f0d71d361b8b4567_2051216920.jpeg' width='32px' height='32px'/>
+                    </div>
+                    <div class='list_name'>
+                        <div class='name'>{{a.name}}</div>
+                        <div class='somedetails'><div class='online'></div><span>1 นาที</span><span><i data-ibzn="&#xf1a7;"></i>ร้านค้า</span></div>
+                    </div>
+                    <div class='has_count'>
+                        <div class='btn_badge'>12</div>
+                    </div>
+                </a>
+            </li>
+            
+            <!--<li>
+                <a href='#'>
+                    <div class='list_av'>
+                        <img src='https://im.bazarn.com/c32x32/uploads/avatar_56f3de62f0d71dc4688b4567_1800357965.jpg' width='32px' height='32px'/>
+                    </div>
+                    <div class='list_name'>
+                        <div class='name'>รักเธอ</div>
+                        <div class='somedetails'><div class='online'></div><span>1 นาที</span><span><i data-ibzn="&#xf1a7;"></i>แบรนด์</span></div>
+                    </div>
+                    <div class='has_count'>
+                        <div class='btn_badge'>12</div>
+                    </div>
+                </a>
+            </li>-->
+           <!-- <li>
+                <a href='#'>
+                    <div class='list_av'>
+                        <img src='https://im.bazarn.com/c32x32/uploads/avatar_56f3de62f0d71dc4688b4567_1800357965.jpg' width='32px' height='32px'/>
+                    </div>
+                    <div class='list_name'>
+                        <div class='name'>รักเธอ</div>
+                        <div class='somedetails'><div class='online'></div><span>1 นาที</span><span><i data-ibzn="&#xf1a7;"></i>บริการ</span></div>
+                    </div>
+                    <div class='has_count'>
+                        <div class='btn_badge'>12</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href='#'>
+                    <div class='list_av'>
+                        <img src='https://im.bazarn.com/c32x32/uploads/avatar_56f3de62f0d71dc4688b4567_1800357965.jpg' width='32px' height='32px'/>
+                    </div>
+                    <div class='list_name'>
+                        <div class='name'>รักเธอ</div>
+                        <div class='somedetails'><div class='online'></div><span>1 นาที</span><span><i data-ibzn="&#xf1a7;"></i>ร้านอาหาร</span></div>
+                    </div>
+                    <div class='has_count'>
+                        <div class='btn_badge'>12</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href='#'>
+                    <div class='list_av'>
+                        <img src='https://im.bazarn.com/c32x32/uploads/avatar_56f3de62f0d71dc4688b4567_1800357965.jpg' width='32px' height='32px'/>
+                    </div>
+                    <div class='list_name'>
+                        <div class='name'>รักเธอ</div>
+                        <div class='somedetails'><div class='online'></div><span>1 นาที</span><span><i data-ibzn="&#xf1a7;"></i>สถานที่</span></div>
+                    </div>
+                    <div class='has_count'>
+                        <div class='btn_badge'>12</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href='#'>
+                    <div class='list_av'>
+                        <img src='https://im.bazarn.com/c32x32/uploads/avatar_56f3de62f0d71dc4688b4567_1800357965.jpg' width='32px' height='32px'/>
+                    </div>
+                    <div class='list_name'>
+                        <div class='name'>รักเธอ</div>
+                        <div class='somedetails'><div class='online'></div><span>1 นาที</span><span><i data-ibzn="&#xf1a7;"></i>assets</span></div>
+                    </div>
+                    <div class='has_count'>
+                        <div class='btn_badge'>12</div>
+                    </div>
+                </a>
+            </li>-->
+        </ul>
+    </div>
+</div>
+
+<!--{{listChat}}-->
+ <!--<ul class='sbox-chat'>
+    <li *ngFor="let x of listChat" ><box-chat [data]="x"></box-chat></li>
+     <li class='chatbox'>
+        box1
+     </li>
+     <li class='chatbox'>
+         box2
+     </li>
+ </ul>-->
+ <div *ngFor="let x of boxChatList"   >
+ <box-chat 
+    [data]="x" 
+    [messageLoad]="messageLoad"
+    [type]="'boxchat'" 
+    [user_id]="user_id" 
+    (deleteBox)="deleteBox($event)" 
+    (editName)="modal($event)" 
+    (uploadBox)="modalUpload($event)"
+    (editAddFriend)="modalAddFriend($event)" 
+    [position_right]="x.position">
+</box-chat>
+    
+    <!--<box-chat [data]="x" [position_right]="480"></box-chat>
+    <box-chat [data]="x" [position_right]="750"></box-chat>-->
+ </div>
+<box-chat (selectfriend)="selectFriend($event)" (deleteBox)="deleteBox($event)"  *ngIf="boxChatqu.length != 0" [data]="boxChatqu"  [type]="'listfriend'"  [position_right]="1080"></box-chat>
+
+ <!--<box-chat></box-chat>-->
+ <!--<div class='chatbox_widgets w' [style.right]="'440px'">
+     show 2
+ </div>-->
+ <!--<modal_chat  [getModal]="gid"></modal_chat>-->
+
+        <div [attr.class]='gid' *ngIf="gid && modalType == 'edit_name'">
+                <div class='overlay_dialog'>
+                   <div class='bzn_dialog' style='min-height: 90px;'>
+                        <div class='preload_dialog'></div>
+                       <div class='fade_dialog'>
+                            
+                            <div class='inner_gray clearfix'>
+                                <div class='inner_gray_text'>
+                                    ตั้งค่ากลุ่มสนทนา {{gid}} 
+                                </div>
+                                <div class='inner_gray_close_button'>
+                                    <a href='javascript:void(0)' class='customdialog_close' (click)="closeModal(gid)" role='button' title='Close'>×</a>
+                                </div>
+                                
+                            </div>
+                            <div class='inner_body'>
+                                <div class="progress" style="">
+                                             <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
+                                         </div>
+                                       
+                                <div class='inner_body_content p12' id="upload" >
+                                    <form method='post'   enctype='multipart/form-data' action='/chat/uploadGroup' class='uploadForm' #form>
+                                        <div class='group_av_Upload'  >
+                                            <input type='hidden' name='gid' value='577cb3696f0c8bb04e430bbe'>
+                                            <input type='hidden' name='df' ng-value='df' value=''>
+                                          
+                                          
+                                            <img [src]='getPicuteGroup(groupData.picture)'  >
+                                            
+                                            <input type='file' ng2FileSelect [uploader]="uploader" class='upload_av ' (change)="onChange($event,form)" accept='image/png, image/jpg, image/jpeg'>
+                                        </div>
+                                    </form>
+                                    <div class='ex_upload'>คลิ๊กที่รูปภาพเพื่อเปลี่ยนโลโก้ของกลุ่ม</div>
+                                    <div style="text-align:center;"><button class="submit_button" (click)="delGroupMe()">ออกจากกลุ่ม</button></div> 
+                                    <div class='input_group'>
+                                        <label>ชื่อกลุ่ม</label>
+                                        <div>
+                                            <input type='text' class='group_name' name='group_name' [(ngModel)]="groupData.group_name" placeholder='ตั้งชื่อกลุ่ม'>
+                                            <button class='submit_button' (click)="updateGroup()">อัพเดท</button>
+                                        </div>
+                                    </div>
+
+                                    <div class='findfriendtogroup'>
+                                         <ul class='myfriendinlist'>
+                                            <li *ngFor="let df of addFriendData"><div class='actionx'><div class='name'>{{df.name}}</div> <button (click)="delFriend(df,'delnow')"><i class='fa fa-times'></i></button></div></li>
+                                            
+                                        </ul>
+                                        <div class='cv_form'>
+                                            <input type='text' [(ngModel)]="findFriendGroup" class='input_friend_togroup' name='' value='' placeholder="ค้นหาเพื่อนเพื่อเพิ่มเข้ากลุ่ม">
+                                        </div>
+                                        <ul class='myfriendlistforgroup'>
+                                            <span *ngFor="let f of listFriendGroup | filter:findFriendGroup">
+                                                <li  *ngIf="f.show"><img [src]="'https://im.bazarn.com/90x90/'+f.picture"><div class='actionx'><div class='name'>{{f.name}}</div> <button (click)="addFriend(f,'addnow')"><i class='fa fa-plus'></i></button></div>
+                                                </li>
+                                            </span>
+                                        </ul>
+                                    </div>
+
+
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+           </div>
+           <div [attr.class]='gid' *ngIf="gid && modalType == 'upload_chat'">
+                <div class='overlay_dialog'>
+                   <div class='bzn_dialog' style='min-height: 90px;'>
+                        <div class='preload_dialog'></div>
+                       <div class='fade_dialog'>
+                            
+                            <div class='inner_gray clearfix'>
+                                <div class='inner_gray_text'>
+                                    Upload 
+                                </div>
+                                <div class='inner_gray_close_button'>
+                                    <a href='javascript:void(0)' class='customdialog_close' (click)="closeModal(gid)" role='button' title='Close'>×</a>
+                                </div>
+                                
+                            </div>
+                            <div class='inner_body'>
+                                <div class='inner_body_content p12'>
+                                    <respond-dropzone [gid]="gid" [token]="token" [user_id]="user_id" (dataUpload)="UploadSuccess($event)"></respond-dropzone> 
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+           </div>
+           <div [attr.class]='gid' *ngIf="gid && modalType == 'edit_friend'">
+                <div class='overlay_dialog'>
+                    <div class='bzn_dialog' style='min-height: 90px;'>
+                        <div class='preload_dialog'></div>
+                        <div class='fade_dialog'>
+                            
+                            <div class='inner_gray clearfix ng-pristine ng-untouched ng-valid ng-scope ng-empty' ng-model='test'>
+                                <div class='inner_gray_text'>
+                                    แก้ไขผู้มีส่วนร่วมการสนทนา {{gid}}
+                                </div>
+                                <div class='inner_gray_close_button'>
+                                    <a href='javascript:void(0)' class='customdialog_close' (click)="closeModal(gid)" role='button' title='Close'>×</a>
+                                </div>
+                            </div>
+                            <div class='inner_body ng-scope'>
+                                <div class='inner_body_content'>
+                                    <ul class='mygroupchat' ng-init='gid = \"577cb3696f0c8bb04e430bbe\"'>
+                                        <li>
+                                            <div class='they_av'><img src='https://im.bazarn.com/90x90/uploads/avatar_564953398992f718040041ad_423053985.jpeg'></div>
+                                            <div class='they_name'>Bazarn Official </div>
+                                            <div class='they_action'><a href='#' class='df_button' role='button'>ลบออก</a></div>
+                                        </li>
+                                        <li>
+                                            <div class='they_av'><img src='https://im.bazarn.com/90x90/uploads/avatar_56e27a6af0d71dd71b8b4567_1498754899.jpeg'></div>
+                                            <div class='they_name'>inspire with passion</div>
+                                            <div class='they_action'><a href='#' class='df_button' role='button'>ออกจากการสนทนา</a></div>
+                                        </li>
+                                        <li>
+                                            <div class='they_av'><img src='https://im.bazarn.com/90x90/uploads/avatar_56ed1f79f0d71d92318b4567_1710127776.jpg'></div>
+                                            <div class='they_name'>Watchara Hongkim</div>
+                                            <div class='they_action'><a href='#' class='df_button' role='button'>ลบออก</a></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div [attr.class]='user_id' *ngIf="modalType == 'chat_setting'">
+                <div class='overlay_dialog'>
+                   <div class='bzn_dialog' style='min-height: 90px;'>
+                        <div class='preload_dialog'></div>
+                       <div class='fade_dialog'>
+                            
+                            <div class='inner_gray clearfix'>
+                                <div class='inner_gray_text'>
+                                     ตั้งค่าการสนทนา
+                                </div>
+                                <div class='inner_gray_close_button'>
+                                    <a href='javascript:void(0)' class='dialog_close' (click)="closeModal(user_id)" role='button' title='Close'>×</a>
+                                </div>
+                                
+                            </div>
+                            <div class='inner_body'>
+                                <div class='inner_body_content'>
+                                    <div class='main_chat_setting'>
+                                        <h3>ตั้งค่าความเป็นส่วนตัว</h3>
+                                        <ul class='chat_setting_list'>
+                                           
+                                            <li>
+                                                <div class='ex-text2'>ใครสามารถส่งข้อความหาคุณได้บ้าง</div>
+                                                <div class="btn-group" data-toggle="buttons">
+
+                                                <label *ngIf="send_message == null" class="btn btn-primary active" (click)="chatSetting(1, 1)">
+                                                    <input type="radio" name="allow_message" id="all" [value]='1'> ทุกคน
+                                                </label>
+                                                <label *ngIf="send_message == 1" class="btn btn-primary active" (click)="chatSetting(1, 1)">
+                                                    <input type="radio" name="allow_message" id="all" [value]='1'> ทุกคน
+                                                </label>
+                                                <label *ngIf="send_message != null && send_message != 1" class="btn btn-primary" (click)="chatSetting(1, 1)">
+                                                    <input type="radio" name="allow_message" id="all" [value]='1'> ทุกคน
+                                                </label>
+
+                                               
+
+
+                                                <label *ngIf="send_message == null" class="btn btn-primary" (click)="chatSetting(1, 2)">
+                                                    <input type="radio" name="allow_message" id="onlyfriend" [value]='2'> เพื่อนเท่านั้น
+                                                </label>
+                                                <label *ngIf="send_message == 2" class="btn btn-primary active" (click)="chatSetting(1, 2)">
+                                                    <input type="radio" name="allow_message" id="onlyfriend" [value]='2'> เพื่อนเท่านั้น
+                                                </label>
+                                                <label *ngIf="send_message != null && send_message != 2" class="btn btn-primary" (click)="chatSetting(1, 2)">
+                                                    <input type="radio" name="allow_message" id="onlyfriend" [value]='2'> เพื่อนเท่านั้น
+                                                </label>
+                                                
+                                                <label *ngIf="send_message == null" class="btn btn-primary" (click)="chatSetting(1, 3)">
+                                                    <input type="radio" name="allow_message" id="mynetwork" [value]='3'> เพื่อนของเพื่อน
+                                                </label>
+                                                <label *ngIf="send_message == 3" class="btn btn-primary active" (click)="chatSetting(1, 3)">
+                                                    <input type="radio" name="allow_message" id="mynetwork" [value]='3'> เพื่อนของเพื่อน
+                                                </label>
+                                                <label *ngIf="send_message != null && send_message != 3" class="btn btn-primary" (click)="chatSetting(1, 3)">
+                                                    <input type="radio" name="allow_message" id="mynetwork" [value]='3'> เพื่อนของเพื่อน
+                                                </label>
+                                                </div>
+                                             </li>
+                                            <li>
+                                                <div class='ex-text'>ตรวจสอบคำเชิญเข้ากลุ่ม</div>
+
+
+                                                <div *ngIf="check_message == null" class="switch rounded" onclick="this.classList.toggle('hover')" (click)="chatSetting(2, switchCheck)" #switchCheck>
+                                                    <div class="toggle">
+                                                        <div class='ridges'><i class="fa fa-bars fa-rotate-90" aria-hidden="true"></i></div>
+                                                    </div>
+                                                </div>
+                                                <div *ngIf="check_message == true" class="switch rounded" onclick="this.classList.toggle('hover')" (click)="chatSetting(2, switchCheck)" #switchCheck>
+                                                    <div class="toggle">
+                                                        <div class='ridges'><i class="fa fa-bars fa-rotate-90" aria-hidden="true"></i></div>
+                                                    </div>
+                                                </div>
+                                                <div *ngIf="check_message == false" class="switch hover rounded" onclick="this.classList.toggle('hover')" (click)="chatSetting(2, switchCheck)" #switchCheck>
+
+                                                    <div class="toggle">
+                                                        <div class='ridges'><i class="fa fa-bars fa-rotate-90" aria-hidden="true"></i></div>
+                                                    </div>
+                                                </div>
+
+
+
+                                            </li>
+                                        </ul>
+                                        <hr>
+                                        <h3>ตั้งค่าการแจ้งเตือน</h3>
+                                        <ul class='chat_setting_list'>
+                                            <li>
+                                                <div class='ex-text'>เสียงการแจ้งเตือน</div>
+
+
+                                                <div *ngIf="sound_message == null" class="switch rounded" onclick="this.classList.toggle('hover')" (click)="chatSetting(3, switchSound)" #switchSound>
+                                                    <div class="toggle">
+                                                        <div class='ridges'><i class="fa fa-bars fa-rotate-90" aria-hidden="true"></i></div>
+                                                    </div>
+                                                </div>
+                                                <div *ngIf="sound_message == true" class="switch rounded" onclick="this.classList.toggle('hover')" (click)="chatSetting(3, switchSound)" #switchSound>
+                                                    <div class="toggle">
+                                                        <div class='ridges'><i class="fa fa-bars fa-rotate-90" aria-hidden="true"></i></div>
+                                                    </div>
+                                                </div>
+                                                <div *ngIf="sound_message == false" class="switch hover rounded" onclick="this.classList.toggle('hover')" (click)="chatSetting(3, switchSound)" #switchSound>
+
+                                                    <div class="toggle">
+                                                        <div class='ridges'><i class="fa fa-bars fa-rotate-90" aria-hidden="true"></i></div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <hr>
+                                        <h3>สีของบ็อกแชท</h3>
+                                        <ul class='chat_setting_list'>
+                                            <li>
+                                                <div class='ex-text'>คู่สนทนา จะเห็นสีบ็อกของคุณ</div>
+                                                <div *ngIf="color_message" class="box-color" [ngStyle]="{'background': color_message}"></div>
+                                                <div *ngIf="!color_message" class="box-color" style="background: #dc1f2e"></div>
+                                            </li>
+                                        </ul>
+                                        <div class='use_widget_color'>
+                                            <div class='color_set'>
+                                                <label *ngFor="let c of colors">
+                                                    <input *ngIf="color_message" type="radio" name="color_boxchat" value="{{c.color}}" (click)="chatSetting(4, c.color)" [checked]="c.color == color_message" />
+                                                    <input *ngIf="!color_message" type="radio" name="color_boxchat" value="{{c.color}}" (click)="chatSetting(4, c.color)" [checked]="c.color == '#dc1f2e'" />
+                                                    <div class='colorbox' [ngStyle]="{'background': c.color}"></div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+           </div>
+
+           <div [attr.class]='user_id' *ngIf="modalType == 'create_group'">
+                <div class='overlay_dialog'>
+                   <div class='bzn_dialog' style='min-height: 90px;'>
+                        <div class='preload_dialog'></div>
+                       <div class='fade_dialog'>
+                            
+                            <div class='inner_gray clearfix'>
+                                <div class='inner_gray_text'>
+                                    สร้างกลุ่มใหม่
+                                </div>
+                                <div class='inner_gray_close_button'>
+                                    <a href='javascript:void(0)' class='dialog_close' (click)="closeModal(user_id)" role='button' title='Close'>×</a>
+                                </div>
+                                
+                            </div>
+                            <div class='inner_body'>
+                                <div class='inner_body_content'>
+                                        
+                                        <div class='group_av_Upload' ng-init='imgGroup = getPicuteGroup(\"\")'>
+                                           
+                                            <img [src]="img" >
+                                            <input type='file' ng2FileSelect [uploader]="uploaderCreateGroup" class='upload_av ' (change)="getImg($event)"  accept='image/png, image/jpg, image/jpeg'>
+                                        </div>
+                                    
+                                    <div class='ex_upload'>โลโก้ของกลุ่ม</div>
+                                    <div class='input_group' style='padding:10px;'>
+                                        <label>ชื่อกลุ่ม</label>
+                                        <div ng-init='group_name = \"56e27a6af0d71dd71b8b4567-1467790185\"'>
+                                            <input type='text' class='group_name ' [(ngModel)]="newGroup" placeholder='ตั้งชื่อกลุ่ม'>
+                                            <button class='submit_button' *ngIf="addFriendData.length >= 2 && newGroup?.length >= 4" (click)="createNewGroup($event)">อัพเดท</button>
+                                            
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class='ex_upload'>เพิ่มเพื่อนเข้ากลุ่มอย่างน้อย 2 คน</div>
+                                    <div class='findfriendtogroup'>
+                                         <ul class='myfriendinlist'>
+                                            <li *ngFor="let df of addFriendData"><div class='actionx'><div class='name'>{{df.name}}</div> <button (click)="delFriend(df)"><i class='fa fa-times'></i></button></div></li>
+                                            
+                                        </ul>
+                                        <div class='cv_form'>
+                                            <input type='text' [(ngModel)]="findFriendGroup" class='input_friend_togroup' name='' value='' placeholder="ค้นหาเพื่อนเพื่อเพิ่มเข้ากลุ่ม">
+                                        </div>
+                                        <ul class='myfriendlistforgroup'>
+                                            <span *ngFor="let f of listFriendGroup | filter:findFriendGroup">
+                                                <li  *ngIf="f.show"><img [src]="'https://im.bazarn.com/90x90/'+f.picture"><div class='actionx'><div class='name'>{{f.name}}</div> <button (click)="addFriend(f)"><i class='fa fa-plus'></i></button></div>
+                                                </li>
+                                            </span>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+           </div>
+
+           

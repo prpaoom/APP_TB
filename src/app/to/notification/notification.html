@@ -1,0 +1,11 @@
+<span (click)="readAll('57835f55f0d71d8f518b4567')">อ่านทั้งหมด</span>
+<ul>
+    <li *ngFor="let row of data_noti"> 
+        <a href="{{row.link}})" (click)="readNoti(row._id)"> 
+            <img src="http://27.254.81.103/{{row.avatar}}" height="42" width="42"> <b>{{row.name}}</b> <span [innerHTML]="row.message"></span>
+            <span *ngIf="row.photo != ''"><img src="http://27.254.81.103/{{row.photo}}" height="42" width="42"></span>
+        </a>  
+    </li>
+</ul>
+
+ 

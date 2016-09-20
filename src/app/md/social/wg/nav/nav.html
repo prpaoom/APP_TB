@@ -1,0 +1,94 @@
+<nav class='bznNav'>
+    <div class='Nav_container'>
+       <div class='menu-bzn'>
+            <ul class='menu_bzn'>
+                <li class='TopLevel dropdown'>
+                    <a [routerLink]="['/social/wall']">
+                        <i data-ibzn="&#xf20a;"></i>
+                        ฟีด
+                    </a>
+                    <div class='dropdown-menu'>
+                        YYYY
+                    </div>
+                </li>
+                <li class='TopLevel'>
+                    <a href='javascript:void(0)' class='bazarnproducts' swMenu>
+                        <i data-ibzn="&#xf12b;"></i>
+                        บาซาน
+                    </a>
+                </li>
+                <li class='TopLevel'>
+                    <a href='javascript:void(0)' class='has_count friendreq' swMenu>
+                        <div class='btn_badge_blue' *ngIf="sum_reqFriend != 0">{{sum_reqFriend}}</div>
+                        <i data-ibzn="&#xf208;"></i>
+                        คำขอ
+                    </a>
+                </li>
+                <li class='TopLevel'>
+                    <a href='javascript:void(0)' class='has_count notificationlist' swMenu>
+                        <div class='btn_badge' *ngIf="sum_noti != 0">{{sum_noti}}</div>
+                        <i data-ibzn="&#xf15f;"></i>
+                        แจ้งเตือน
+                    </a>
+                </li>
+                <li class='TopLevel hidechatBtn'>
+                    <a href='javascript:void(0)' class='has_count toggleRightChat' swMenu>
+                        <div class='btn_badge_green'>12</div>
+                        <i class="fa fa-comments-o"></i>
+                        ข้อความ
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class='xs-avatar'>
+           <div class='dropdown'>
+            <div class='xs_avatar' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src='https://im.bazarn.com/24x24/uploads/avatar_56e264b6f0d71dd5718b4567_1166285862.jpeg'>
+            </div>
+            <ul class='dropdown-menu pull-right myMenu'>
+                <li>
+                    <a [routerLink]="['/social/profile']"><i data-ibzn="&#xf185;"></i>โปรไฟล์ของคุณ</a>
+                </li>
+                <li>
+                    <a href='#'><i data-ibzn="&#xf1dd;"></i>ตั้งค่าบัญชี</a>
+                </li>
+                <li>
+                    <a href='#'><i data-ibzn="&#xf1a3;"></i>กล่องข้อความ</a>
+                </li>
+                <li>
+                    <a href='#'><i data-ibzn="&#xf14a;"></i>เพื่อนๆของคุณ</a>
+                </li>
+                <li>
+                    <a href='#'><i data-ibzn="&#xf167;"></i>รายการโปรด</a>
+                </li>
+                <li>
+                    <a href='#'><i data-ibzn="&#xf194;"></i>คู่มือการใช้งาน</a>
+                </li>
+                <li>
+                    <a href='#'><i data-ibzn="&#xf162;"></i>ออกจากระบบ</a>
+                </li>
+            </ul>
+           </div>
+           <div class='myCart has_count myshoppingcart' swMenu>
+               <div class='btn_badge_yellow'>2</div>
+               <i data-ibzn="&#xf1e8;"></i>
+               ตระกร้า
+           </div>
+       </div>
+
+       <div class='toggleLeftMenu' swMenu>
+            <i data-ibzn="&#xf1fd;"></i>
+        </div>
+        <div class='sl-logo'>
+            <div class='sl_logo'>
+                <a href='./'><img src='{{site_url}}/assets/images/logo-30-yw.png'></a>
+            </div>
+        </div>
+        <div class='navsearch' swMenu>
+            <i class="fa fa-search" aria-hidden="true"></i>
+            ค้นหา...
+        </div>
+    </div>
+</nav>
+<!--เมนู-->

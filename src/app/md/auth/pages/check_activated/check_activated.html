@@ -1,0 +1,11 @@
+<div *ngIf="checkActivate"  class="alert alert-dismissible alert-warning">
+    <h5>คุณยังไม่มีการยืนยัน Email!</h5>
+    <h6><p>ตรวจสอบความถูกต้องที่อยู่ Email ของท่าน {{email}} </p></h6>
+    <button [routerLink]="['/resend']" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">เปรี่ยนอีเมล</button>
+     <button  (click)="resendEmailNew()" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">ส่งอีเมลใหม่อีกครั้ง</button>
+  
+    <!--<modal [type]="'reset_email'"></modal>          -->
+             
+                
+                
+</div>

@@ -1,0 +1,366 @@
+// badge for count number
+.has_count{
+    position:relative;
+    .btn_badge {
+        background: #FF5D5D;
+        color: white;
+        font-size: 10px;
+        line-height:10px;
+        position: absolute;
+        top: -2px;
+        right: 0px;
+        padding: 2px 3px;
+    }
+    .btn_badge_blue{
+        @extend .btn_badge;
+        background: $brand-primary;
+    }
+    .btn_badge_green{
+        @extend .btn_badge;
+        background: $brand-success;
+    }
+    .btn_badge_yellow{
+        @extend .btn_badge;
+        background: darken(#f0ad4e, 5%);
+    }
+}
+
+//preload
+.preload {
+  width: 100px;
+  height: 100px;
+  left:50%; top:50%;
+	transform:translate(-50%,-50%);
+	position:absolute;
+}
+.jumper {
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  position: absolute;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+}
+.jumper > div {
+  background-color: #0099cc;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  position: absolute;
+  opacity: 0;
+  width: 50px;
+  height: 50px;
+  -webkit-animation: jumper 1s 0s linear infinite;
+  animation: jumper 1s 0s linear infinite;
+}
+.jumper > div:nth-child(2) {
+  -webkit-animation-delay: 0.33333s;
+  animation-delay: 0.33333s;  
+}
+.jumper > div:nth-child(3) {
+  -webkit-animation-delay: 0.66666s;
+  animation-delay: 0.66666s;
+}
+@-webkit-keyframes jumper {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  5% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+@keyframes jumper {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  5% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.switch {
+  width:56px;
+  padding:2px;
+  border:2px solid $brand-primary;
+  box-sizing:border-box;
+  -webkit-transition:all 03s;
+  transition:all 0.3s;
+  border-radius:0px;
+  cursor:pointer;
+  display:inline-block;
+  @include border-radius(4px);
+
+  .toggle {
+    width:24px;
+    height:24px;
+    background:$brand-primary;
+    border-radius:0;
+    position:relative;
+    transition:all 0.3s;
+    left:24px;
+    -webkit-transition:all 0.3s;
+    text-align: center;
+    line-height:24px;
+    vertical-align: middle;
+    @include border-radius(2px);
+    .ridges{
+        display:inline-block;
+        width:14px;
+        font-size:14px;
+        margin-top:0px;
+        color:#ffffff;
+    }
+   }
+   &.rounded{
+       border-radius:28px;
+       .toggle {
+           border-radius:100%;
+       }
+   }
+   &.success{
+       border:2px solid $brand-success;
+       .toggle {
+           background:$brand-success;
+       }
+   }
+   &.hover{
+        border:2px solid $btn-default-border-color;
+        .toggle{
+            background:$btn-default-border-color;
+            left:0px;
+        }
+   }
+}
+// on-click animation
+@include keyframes(click-wave) {
+  $offset: ((($option-size * $explosion-distance) - $option-size) / 2);
+  
+  0% {
+    @include size($option-size);
+    opacity: 0.35;
+    position: relative;
+  }
+  
+  100% {
+    @include size($option-size*$explosion-distance);
+    margin-left: -$offset;
+    margin-top: -$offset;
+    opacity: 0;
+  }
+}
+
+
+
+// Checkbox/Radio replacement
+.option-input {
+  @include appearance(none);
+  @include position($option-size/3 0 0 0);
+  @include size($option-size);
+  @include transition;
+  background: $option-color;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 0.5rem;
+  outline: none;
+  position: relative;
+  z-index: 1000;
+  outline:none;
+  &:hover {
+    background: darken($option-color, 15%);
+  }
+
+  &:checked,&:focus {
+    background: $checked-option-color;
+    outline:none !important;
+
+    // checkmark
+    &::before {
+      @include size($option-size);
+      @include position(absolute);
+      content: '\2713';
+      display: inline-block;
+      font-size: $option-size/1.5;
+      text-align: center;
+      line-height: $option-size;
+      outline:none;
+    }
+
+    // animted wave
+    &::after {
+      @include animation(click-wave $explosion-duration);
+      background: $checked-option-color;
+      content: '';
+      display: block;
+      position: relative;
+      z-index: 100;
+      outline:none;
+    }
+  }
+  
+  &.radio {
+    border-radius: 50%;    
+    outline:none;
+
+    &::after {
+      border-radius: 50%;
+      outline:none;
+    }
+  }
+}
+
+/* --------------------------------- */
+    /* RATING CSS */
+    /* --------------------------------- */
+
+    .my_rating {
+        cursor: pointer;
+        height: 30px;
+        font-size: 0;
+        margin-bottom: 15px;
+    }
+
+    .my_rating input {
+        display: none;
+    }
+
+    .my_rating input + label {
+        display: inline-block;
+        width: 30px;
+        line-height: 30px;
+        text-align: center;
+        font-size: 24px;
+        color: #FFC107;
+        cursor: pointer;
+    }
+
+    .my_rating input + label.fa-heart {
+        color: #ee2351;
+    }
+    .my_rating input + label.fa-star {
+        color: #FFC107;
+    }
+
+    .my_rating input:checked + label ~ label {
+        color: #777;
+    }
+
+    /* --------------------------------- */
+    /* RATING CSS HOVER EFFECT */
+    /* --------------------------------- */
+    .my_rating.hover-effect input:checked + label.fa-heart ~ label {
+        color: #ee2351;
+        opacity: 0.3;
+    }
+    .my_rating.hover-effect input:checked + label.fa-star ~ label {
+        color: #FFC107;
+        opacity: 0.3;
+    }
+
+    .my_rating.hover-effect:hover input + label.fa-heart ~ label {
+        color: #ee2351;
+        opacity:1;
+    }
+    .my_rating.hover-effect:hover input + label.fa-star ~ label {
+        color: #FFC107;
+        opacity:1;
+    }
+
+    .my_rating.hover-effect:hover input:hover + label.fa-heart ~ label  {
+        color: #777;
+        opacity: 0.5;
+    }
+    .my_rating.hover-effect:hover input:hover + label.fa-star ~ label  {
+        color: #777;
+        opacity: 0.5;
+    }
+
+    //card 
+    .card-orange{
+        background:$card-color-orange;
+        color:#ffffff;
+    }
+    .card-pinky{
+        background:$card-color-pinky;
+        color:#ffffff;
+    }
+    .card-yellow{
+        background:$card-color-yellow;
+        color:#ffffff;
+    }
+    .card-system{
+        background:$card-color-bg;
+        color:#ffffff;
+    }
+    .card-red{
+        background:$card-color-somered;
+        color:#ffffff;
+    }
+    .card-blue{
+        background:$card-color-blue;
+        color:#ffffff;
+    }
+    .card-lightblue{
+        background:lighten($card-color-blue,20%);
+        color:#ffffff;
+    }
+    .card-gray{
+        background:$card-color-gray;
+        color:#ffffff;
+    }
+    .card-green{
+        background:$card-color-green;
+        color:#ffffff;
+    }
+    .card-pink{
+        background:$card-color-pink;
+        color:#ffffff;
+    }
+
+
+.youtube {
+    background: no-repeat center;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    transition: all 200ms ease-out;
+    cursor: pointer;
+    width: 480px;
+    height: 270px;
+    background-size: 100%;
+    .play {
+        background: url("../images/playvdo.png") no-repeat center center;
+        background-size: 64px 64px;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        opacity: .8;
+        filter: alpha(opacity=80);
+        transition: all .2s ease-out;
+    }
+    &:hover{
+        .play{
+            opacity: 1;
+            filter: alpha(opacity=100);
+        }
+    }
+}
+

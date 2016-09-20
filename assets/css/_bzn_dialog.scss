@@ -1,0 +1,207 @@
+a[role="button"] {outline: none;}
+.bzn_dialog {
+    opacity: 0;
+    -webkit-box-shadow: 0 2px 26px rgba(0, 0, 0, .3), 0 0 0 1px rgba(0, 0, 0, .1);
+    box-shadow: 0 2px 26px rgba(0, 0, 0, .3), 0 0 0 1px rgba(0, 0, 0, .1);
+    -moz-box-shadow: 0 2px 26px rgba(0, 0, 0, .3), 0 0 0 1px rgba(0, 0, 0, .1);
+    margin: 78px auto 40px;
+    background-color: #fff;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    position: relative;
+    z-index: 900;
+}
+
+.fade_dialog {
+    display: none;
+}
+
+/*Dialog Header*/
+.inner_gray {
+    padding: 10px 12px;
+    background-color: #f5f6f7;
+    border-bottom: 1px solid #e5e5e5;
+    -webkit-border-radius: 3px 3px 0 0;
+    border-radius: 3px 3px 0 0;
+    -moz-border-radius: 3px 3px 0 0;
+    color: #4e5665;
+    font-weight: bold;
+    line-height: 19px;
+    text-shadow: 0 1px 0 #fff;
+    width:100%;
+}
+
+.inner_gray_text {
+    float: left;
+}
+
+.inner_gray_close_button {
+    float: right;
+}
+
+/*Dialog body*/
+.inner_body_content {
+    padding: 0px;
+    background-color: #fff;
+    font-size: 14px;
+}
+.p12{padding: 12px;}
+
+
+.input_group{display:block; margin-bottom:15px; font-size:12px;padding-top:15px; border-top:1px solid #e5e5e5; margin-top:20px;}
+.input_group label{display:block; font-weight:bold; margin-bottom:5px;}
+.input_group .group_name{height:32px; padding:4px; border:1px solid #e5e5e5; width:calc(100% - 57px); float:left;}
+.input_group .group_name:focus{outline:none;}
+.input_group .setgroup_btn{width:20%; float:left;}
+/*
+.inner_buttons {
+    background: transparent;
+    border-top: 1px solid #e9eaed;
+    margin: 0 12px;
+    padding: 12px 0;
+    text-align: right;
+}
+*/
+
+.okay_button {
+    padding: 0 8px;
+    background-color: #4e69a2;
+    border-color: #435a8b #3c5488 #334c83 !important;
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, .2);
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-font-smoothing: antialiased;
+    line-height: 20px;
+    font-weight: bold;
+    font-size: 12px;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.df_button {
+    padding: 0 8px;
+    margin-left: 4px;
+    border-color: #cdced0 #c5c6c8 #b6b7b9 !important;
+    color: #4e5665;
+    text-shadow: 0 1px 0 #fff;
+    background: #f6f7f8;
+    background-image: -webkit-linear-gradient(top, #ffffff, #f6f7f8);
+    background-image: -moz-linear-gradient(top, #ffffff, #f6f7f8);
+    background-image: -ms-linear-gradient(top, #ffffff, #f6f7f8);
+    background-image: -o-linear-gradient(top, #ffffff, #f6f7f8);
+    background-image: linear-gradient(to bottom, #ffffff, #f6f7f8);
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-font-smoothing: antialiased;
+    line-height: 22px;
+    font-weight: bold;
+    font-size: 12px;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    white-space: nowrap;
+    margin-top:5px;
+}
+
+.submit_button {
+    padding: 4px 8px;
+    margin-left: 4px;
+    border-color: #cdced0 #c5c6c8 #b6b7b9 !important;
+    color: #4e5665;
+    text-shadow: 0 1px 0 #fff;
+    background: #f6f7f8;
+    background-image: -webkit-linear-gradient(top, #ffffff, #f6f7f8);
+    background-image: -moz-linear-gradient(top, #ffffff, #f6f7f8);
+    background-image: -ms-linear-gradient(top, #ffffff, #f6f7f8);
+    background-image: -o-linear-gradient(top, #ffffff, #f6f7f8);
+    background-image: linear-gradient(to bottom, #ffffff, #f6f7f8);
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-font-smoothing: antialiased;
+    line-height: 22px;
+    font-weight: bold;
+    font-size: 12px;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.submit_button:focus{outline:none;}
+/*Close Button*/
+.dialog_close{position:relative; top:0px; float:right; font-weight:normal; color:#444; padding:0 5px; float:right;margin-right: 0px; background:rgba(0,0,0,0.1); text-decoration: none;}
+.dialog_close:hover{background:rgba(0,0,0,0.3); color:#222;  text-decoration: none;}
+.dialog_close:focus{outline: none;}
+
+.customdialog_close{position:relative; top:0px; float:right; font-weight:normal; color:#444; padding:0 5px; float:right;margin-right: 0px; background:rgba(0,0,0,0.1); text-decoration: none;}
+.customdialog_close:hover{background:rgba(0,0,0,0.3); color:#222;  text-decoration: none;}
+.customdialog_close:focus{outline: none;}
+
+/*Clear Fix*/
+.clearfixer {
+    zoom: 1;
+}
+
+.clearfixer:after {
+    clear: both;
+    content: ".";
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+
+/*Dialog overlay_dialog*/
+.overlay_dialog {
+    height: auto;
+    left: 0;
+    min-height: 100%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, .7);
+    display: none;
+}
+.loader{position:absolute; top:50%; left:50%; margin-left:-16px; margin-top:-16px;}

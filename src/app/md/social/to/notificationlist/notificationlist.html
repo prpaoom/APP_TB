@@ -1,0 +1,27 @@
+<div class='notification_control'>
+    <div class='fixhead'>
+        <h2>การแจ้งเตือน</h2>
+    </div>
+    <div class='resnotilist'>
+        <div class='topic'>การแจ้งเตือนล่าสุด <button  class='btn btn-link'><i class="ibzn-settings-filled"></i></button><button  class='btn btn-default' (click)="readAll()">ตั้งค่าว่าอ่านหมดแล้ว</button></div>
+        <ul class='flist'>
+            <li *ngFor="let row of notiResult"> 
+                <a href="https://www.bazarn.com/{{row.link}}" (click)="readNoti(row._id)" [attr.class]="row.read == 0 ? 'unread':'' " >
+                    <div class='notilist'>
+                        <div class='noti_av'>
+                            <img src='https://im.bazarn.com/50x50/{{row.avatar}}'>
+                        </div>
+                        <div class='noti_detail'>
+                            <div class='noti_name'>{{row.name}}</div>
+                            <div class='noti_circle'>{{row.message}}</div> 
+                            <div class='noti_time'>เมื่อ {{row.date | timeAgo}}</div> 
+                        </div>
+                        <div *ngIf="row.photo != ''" class='noti_photo'>
+                            <img src='https://im.bazarn.com/50x50/{{row.photo}}'>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

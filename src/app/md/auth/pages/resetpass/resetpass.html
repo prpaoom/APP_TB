@@ -1,0 +1,37 @@
+<div class='auth-container'>
+    <div class='auth_center'>
+        <div class='auth_inner'>
+            <div class='auth_top'>
+                <div class='auth_logo'>
+                    <img src='{{site_url}}/assets/images/logo-30-yr.png'>
+                </div>
+                <h1 class='auth_title'>ตั้งค่ารหัสผ่านใหม่</h1>
+            </div>
+            <div class='auth_helptext'>
+                <p>แนะนำให้ตั้งค่าแบบผสม ภาษาอังกฤษ พิมพ์เล็ก พิมพ์ใหญ่ และตัวเลข เพื่อให้ยากต่อการคาดเดาจากบุคคลอื่น</p>
+            </div>
+            <div class='auth_form'>
+                <form [formGroup]="formNewPassword" (ngSubmit)="submitReset()">
+                <div class='input_group'>
+                    <label>รหัสผ่านใหม่</label>
+                    <input type='password' formControlName="password" class='auth_input'>
+                    <p class='helpbox'><span *ngIf="!formNewPassword.controls.password.valid && formNewPassword.controls.password.value.length >= 1" class="err">รูปแบบ รหัสผ่าน ไม่ถูกต้อง ควรจะมี ตัวเลข รหัสผ่านต้อง 8-20 ตัวขึ้นไป</span></p>
+                </div>
+                <div class='input_group'>
+                    <label>ยืนยันรหัสผ่านใหม่นี้</label>
+                    <input type='password' formControlName="passwordConfirm" class='auth_input'>
+                    <p class='helpbox'><span *ngIf="formNewPassword.controls.passwordConfirm.value != formNewPassword.controls.password.value && formNewPassword.controls.passwordConfirm.value.length >= 1" class="err">รหัสผ่านไม่ตรงกัน</span></p>
+                </div>
+                <div class='input_group w50'>
+                    <button class='btn btn-primary'>ตั้งค่ารหัสผ่านนี้</button>
+                </div>
+                <div class='input_group w50'></div>
+                </form>
+            </div>
+        </div>
+        <div class='auth_helplink'>
+            <a href='#'><i data-ibzn="&#xf176;"></i>ข้อตกลงการใช้งาน</a>
+            <a href='#'><i data-ibzn="&#xf1be;"></i>ความเป็นส่วนตัว</a>
+        </div>
+    </div>
+</div>

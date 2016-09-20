@@ -1,0 +1,16 @@
+{
+  "exclude": [
+      "node_modules" // we need to tell the transpiler to stay away from this here also
+  ],
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": false,
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true
+  }
+}

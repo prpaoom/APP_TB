@@ -1,0 +1,15 @@
+<div class='friend_circle' *ngIf="chk_status == 0 && type == 'request'">
+    <button class='btn btn-sm btn-default' (click)="acceptFriend(uid, type)">
+        <i data-ibzn="&#xf208;"></i> ตอบรับคำขอ
+    </button>
+</div>
+
+<div class='friend_circle' *ngIf="chk_status == 1 && type == 'request'">
+    <i data-ibzn="&#xf208;"></i> ตอบรับคำขอเรียบร้อย
+</div> 
+ 
+<button class='btn btn-sm btn-primary' *ngIf="btn_friend == 0 && type == 'addfriend'" (click)="addFriend(uid, type)">ขอเป็นเพื่อน</button>
+
+<button class='btn btn-sm btn-default' *ngIf="btn_friend == 1 && type == 'addfriend'" (click)="delFriend(uid, type)">ยกเลิกคำขอ</button>
+
+<span *ngIf="btn_friend == 2 && type == 'addfriend'">เป็นเพื่อนกันแล้ว</span> 

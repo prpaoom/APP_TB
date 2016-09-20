@@ -1,0 +1,98 @@
+<!--<<<<<<< HEAD
+
+
+ <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Forgot Password</h3>
+                    </div>
+                    <div class="panel-body">
+                         
+                            <div class="form-group">
+                                <label for="exampleInputEmail">Email</label>
+                                <input type="email" class="form-control" [(ngModel)]="email" placeholder="Email">
+                            </div>
+                            <button type="submit" (click)="submitForgot()" class="btn btn-default">Submit</button>
+                        
+                        {{message}}
+                    </div>
+                </div>
+                
+                
+               
+                
+            </div>
+        </div>
+=======-->
+<div class='auth-container'>
+    <div class='auth_center'>
+        <div class='auth_inner'>
+            <div class='auth_top'>
+                <div class='auth_logo'>
+                    <img src='{{site_url}}/assets/images/logo-30-yr.png'>
+                </div>
+                <h1 class='auth_title'>กู้รหัสผ่าน</h1>
+            </div>
+            <div class='auth_helptext'>
+                กรุณาเลือกวิธีการกู้รหัสผ่าน
+            </div>
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#bymail" aria-controls="bymail" role="tab" data-toggle="tab">ส่งเข้าอีเมล์</a></li>
+                <li role="presentation"><a href="#bypin" aria-controls="bypin" role="tab" data-toggle="tab">ใช้ PIN</a></li>
+            </ul>
+            
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="bymail">
+                    <div class='auth_form'>
+                        <div class='input_group'>
+                            <label>อีเมล์</label>
+                            <input type='text' [(ngModel)]="email" class='auth_input'>
+                             
+                            <p class='helpbox'>
+                               
+                                <span class='err' *ngIf="!message?.status">{{message?.message}}</span>
+                            </p>
+                            
+                        </div>
+                        
+                        <div class='input_group w50'>
+                            <button class='btn btn-primary' (click)="submitForgot()">ส่งให้ฉันเดี๋ยวนี้</button>
+                        </div>
+                        <div class='input_group w50'></div>
+                    </div>
+                </div>
+                <div class="alert alert-success alert-dismissible" role="alert" *ngIf="message?.status">
+	             {{message?.message}}   
+                    
+                </div>
+                <div role="tabpanel" class="tab-pane" id="bypin">
+                    <div class='auth_form'>
+                        <div class='input_group'>
+                            <label>อีเมล์</label>
+                            <input type='text' name='' class='auth_input'>
+                            <p class='helpbox'>ส่วนแสดงคำอธิบาย หรือ ข้อความ error</p>
+                        </div>
+                        <div class='input_group'>
+                            <label>PIN (ตัวเลข 4 หลัก)</label>
+                            <input type='text' name='' class='auth_input'>
+                            <p class='helpbox'>ส่วนแสดงคำอธิบาย หรือ ข้อความ error</p>
+                        </div>
+                        <div class='input_group w50'></div>
+                        <div class='input_group w50'>
+                            <button class='btn btn-primary'>ดำเนินการต่อ</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='auth_helplink'>
+            <a href='#'><i data-ibzn="&#xf176;"></i>ข้อตกลงการใช้งาน</a>
+            <a href='#'><i data-ibzn="&#xf1be;"></i>ความเป็นส่วนตัว</a>
+        </div>
+    </div>
+</div>
+

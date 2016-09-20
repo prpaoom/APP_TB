@@ -1,0 +1,241 @@
+
+
+@media (max-width: 1259px) {
+.nav_chat{
+    width:200px; height:100vh; position:absolute; 
+    border-left:1px solid darken($nav-bg-dark,30%);; padding-top:42px;
+    background:#323844;color:lighten($nav-bg-dark,30%);top:0;right:0;
+    z-index: 999; position:fixed; overflow-y: scroll; display:none;
+    
+
+    &.nav_chat_show{
+        right:0px;
+         @include animation('slide-friendlist-in .5s');
+         @include boxshadow( 0, -4px , 5px , rgba(0,0,0,0.4));
+    }
+    &.nav_chat_hide{
+            right:-200px;
+         @include animation('slide-friendlist-out .5s');
+         @include boxshadow( 0, 0 , 0 , rgba(0,0,0,0.4));
+    }
+    &.nav_chat_display{
+         display:block !important;
+    }
+
+    }
+}
+@media (min-width: 1260px) {
+    .nav_chat{
+        width:200px; height:100vh; position:fixed; 
+        border-left:1px solid darken($nav-bg-dark,30%);; padding-top:42px;
+        background:#323844;color:lighten($nav-bg-dark,30%);top:0;right:0; display:block;
+        .nav_chat_show,.nav_chat_hide,.nav_chat_display{}
+    }
+}
+.sg_friend_nav_chat{width:100%; height:68px; padding:5px; display:block;
+border-bottom:1px solid rgba(0,0,0,0.15);
+h3.title{font-size:12px; font-family: $title-font2; margin:0px; padding:0px; margin-bottom:4px;}
+    .sg_friend_list{margin:0px; padding:0px; list-style: none; text-align:center;
+        max-height:40px; max-width:100%; overflow-x: scroll; -webkit-overflow-scrolling: touch;
+        &::-webkit-scrollbar { 
+            display: none; 
+        }
+        li{display: table-cell;
+            a{display:block;margin:0 2px; width:40px; height:40px; @include border-radius(2px);
+                img{width:100%; max-height:40px; display:block;
+                border:1px solid rgba(0,0,0,0.2);}
+            }
+        }
+    }
+}
+.search_friend{
+    padding:5px;border-bottom:1px solid rgba(0,0,0,0.15);
+    background:rgba(0,0,0,0.15);
+    .input_findfriend{width:calc(100% - 34px); height:24px; line-height:16px; padding:4px; font-size:12px;
+    border:0; background:rgba(0,0,0,0.25); @include border-radius(); float:left;
+    &:focus{outline:none;}
+    }
+    .action_sgfriend{margin-left:10px; height:24px; width:24px;  float:left;
+        button{height:24px; width:24px;
+            border:0;background:rgba(0,0,0,0.25); @include border-radius();
+            &:focus{outline:none;}
+        }
+        .dropdown-menu{
+            font-size:12px;
+        }
+    }
+    &:after{clear:both; content:''; display:table;}
+}
+.tab-head{border-bottom:1px solid rgba(0,0,0,0.15); margin:0px; list-style:none;padding:10px 0 0;
+    li{
+        padding:0; display:inline-block;
+        a{display:block;border:0; @include border-radius( 2px 2px 0px 0); 
+        display:inline-block;font-size:12px; padding:4px 6px; color:lighten($nav-bg-dark,50%);
+        
+        &:active,&:focus{
+            border-bottom-color:transparent;
+        }
+    }
+    &:hover{
+            background:rgba(0,0,0,0.1);
+        }
+    &.active{
+            @include border-radius( 2px 2px 0px 0); 
+            background-color:rgba(0,0,0,0.15) !important; border-bottom-color:transparent;
+        }
+    &:first-child{margin-left:10px;}
+    }
+    
+    &:after{clear:both; content:''; display:table;}
+    }
+.fllist.active{background-color:rgba(0,0,0,0.15); color:lighten($nav-bg-dark,50%);}
+
+.inchatlist{
+    margin:0px; padding:0px; list-style: none; display:block;
+    li{width:100%;display:block; padding:5px; border-top:1px solid rgba(0,0,0,0.15);background:transparent;
+        a{text-decoration: none;color:lighten($nav-bg-dark,30%); display:block;
+            .list_av{width:32px; height:32px; float:left; margin-right:5px;border:1px solid rgba(0,0,0,0.2); 
+             overflow:hidden; @include border-radius();
+             &.group{@include border-radius(16px);}
+                img{width:100%; display:block;}
+            }
+            .list_name{width:calc(100% - 67px);float:left;
+                .name{font-family: $title-font2; @include textoverflow(); color:lighten($nav-bg-dark,50%); font-size:12px;}
+                .somedetails{font-size:10px; line-height:12px; display:block;
+                    .state{width:6px; height:6px; @include border-radius(3px); margin-right:5px; float:left; margin-top:4px;}
+                    .online{@extend .state; background:$brand-success;}
+                    .alway{@extend .state; background:$brand-warning;}
+                    .offline{@extend .state; background:lighten($nav-bg-dark,50%)}
+                    span{float:left; margin-right:5px;
+                        i{margin-right:5px;}
+                    }
+                }
+            }
+            .has_count{width:30px; float:left; padding-left:5px;height:32px; line-height:32px; text-align:center; vertical-align:middle;
+                .btn_badge{top:5px; right:2px;}
+            }
+            &:after{clear:both; display:table; content:'';}  
+        }
+        &:hover{background: rgba(0,0,0,0.1);}
+        &:first-child{border-top:1px solid transparent;}
+        &:after{clear:both; display:table; content:'';}
+    }
+}
+.chatlistScrollY{
+    max-height:432px; overflow-y:scroll;
+}
+
+
+// @include box-sizing(border-box);
+
+.findfriendtogroup{border-bottom:1px solid #ddd; background:#fff; width:100%; font-size:12px; 
+z-index: 2;box-shadow: 0px 1px 2px 0 rgba(0,0,0,0.2);
+    .cv_form{
+        padding:4px 10px; 
+        .input_friend_togroup{padding:4px; line-height:16px; border:1px solid #ddd; 
+            width:100%; height:32px; float:left;
+            &:focus{display:block; outline:none;}
+        }
+    }
+    .myfriendlistforgroup{
+        min-height:240px; max-height:240px; margin:0px; padding:0px; margin-top:10px; list-style:none; background:#f9f9f9;  border-top:1px solid #ddd;
+        width:100%; float:left; position:relative; overflow-y:scroll;
+        li{
+        display:block; border-top:1px solid #ddd;padding:5px; 
+        background:transparent; text-decoration: none; vertical-align: middle;
+            &:hover{text-decoration: none; background:#f3f3f3;}
+            img{width:32px; height:32px; display:inline-block; margin-right:10px;  vertical-align: middle; float:left;}
+            .actionx{width:calc(100% - 42px);color:#666; float:left; padding-top:5px;
+                .name{width:calc(100% - 42px); float:left; padding-top:3px;
+                    font-weight:bold;  display:inline-block; vertical-align: middle;  
+                    overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+                    }
+                button{float:right; border:1px solid rgba(0,0,0,0.15); @include border-radius(); background:rgba(0,0,0,0.1);
+                    &:hover{background:rgba(0,0,0,0.2);}
+                    &:focus{outline:none;}
+                }
+            }
+        
+        &:first-child{border-top:0px;}
+        &:after{clear:both; content:''; display:table;}
+        }
+        &:after{clear:both; content:''; display:table;}
+    }
+
+    .myfriendinlist{
+        max-height:80px; margin:0px; padding:0px; margin-top:10px; list-style:none; background:#f9f9f9;  border-top:1px solid #ddd;
+        width:100%; float:left; position:relative; overflow-y:scroll;
+        li{
+        display:inline-block; border:1px solid rgba(0,149,255,1);;padding:2px; margin:5px;
+        background:transparent; text-decoration: none; vertical-align: middle; background:rgba(0,149,255,0.7); @include border-radius();
+            &:hover{text-decoration: none; background:rgba(0,149,255,1); color:#fff;}
+            img{width:32px; height:32px; display:inline-block; margin-right:10px;  vertical-align: middle; float:left;}
+            .actionx{color:#ffffff; float:left;
+                .name{ float:left; padding-top:3px; padding-left:5px; margin-right:10px;
+                    font-weight:bold;  display:inline-block; vertical-align: middle;  
+                    overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+                    }
+                button{float:right; color:#fff; border:1px solid rgba(0,0,0,0.15); @include border-radius(); background:rgba(0,0,0,0.1);
+                    &:hover{background:rgba(0,0,0,0.2);}
+                    &:focus{outline:none;}
+                }
+            }
+        &:after{clear:both; content:''; display:table;}
+        }
+        &:after{clear:both; content:''; display:table;}
+    }
+    &:after{clear:both; content:''; display:table;}
+}
+
+.main_chat_setting{
+    padding:10px;
+    h3{font-size:16px; color:$gray-light;}
+    .chat_setting_list{margin:0px; padding:0px; list-style: none;
+        li{display:block; padding:15px 0; border-top:1px solid #eee;
+            .ex-text{float:left; padding-top:8px; width:calc(100% - 60px);}
+            .ex-text2{float:left; padding-top:4px; width:calc(60% - 60px);}
+            .switch,.btn-group{float:right;}
+            .box-color{width:56px; height:32px; float:right; @include border-radius(16px);}
+            &:first-child{border-top:0;}
+            &:after{content:''; clear:both; display:table;}
+        }
+    }
+    .use_widget_color{
+        width:100%; height:50px;overflow-y:hidden; position:relative;
+        overflow-x:scroll; padding:0px; padding-bottom:5px; margin-top:15px;
+        @include scbar();
+        .color_set{
+            min-width:100%; width:970px; height:50px; display:block; position:absolute;
+            label{display:inline-block;}
+
+            .colorbox{
+                width:45px; height:45px; display:inline-block; background:#eee;
+                position:relative; margin-right:5px;
+                @include border-radius(5px); 
+            }
+            label, label > span{
+                input{ /* HIDE RADIO */
+                    visibility: hidden; /* Makes input not-clickable */
+                    position: absolute; /* Remove input from document flow */
+                }
+                input + .colorbox{ /* IMAGE STYLES */
+                    cursor:pointer;
+                    //border:2px solid transparent;
+                }
+
+                input:checked + .colorbox{ /* (RADIO CHECKED) IMAGE STYLES */
+                //border:2px solid green;
+                    &:after{
+                    position:absolute; 
+                    top:50%; left:50%; 
+                    @include prefix(transform, translate(-50%, -50%));
+                    color:#fff;
+                    font-size:36px; font-family: 'ibzn'; content:'\f1ac';
+                    }
+                }
+                
+            }
+        }
+    }
+
+}

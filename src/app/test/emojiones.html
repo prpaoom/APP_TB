@@ -1,0 +1,83 @@
+<div class='sl_container' style='margin-top:200px;'>
+
+    <div id='inputthisistargetID' contenteditable="true" style='min-height:90px; background:#fff; border:1px solid #ddd;'></div>
+
+   <button (click)="callEmoji('thisistargetID')"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></button>
+   <div class='emogiconTab thisistargetID'>
+        <ul class='emo_title '>
+            <span>อารมณ์ <i class='icon-angle-right'></i></span>
+            <li class='active'><a href="#emojiHistory" aria-controls="emojiHistory" role="tab" data-toggle="tab">ที่ใช้บ่อย</a></li>
+            <li><a href="#emojiconservice" (click)="preLoadEmoji('thisistargetID')" aria-controls="emojiconservice" role="tab" data-toggle="tab">สัญลักษณ์</a></li>
+        </ul> 
+        <div class='response_emo tab-content'>
+            <div id='emojiHistory' class='tab-pane active' role="tabpanel">
+                <ul class='emoticons' id='historythisistargetID' style='font-size:16px;'></ul>
+            </div>
+            <div id="emojiconservice" class='tab-pane' role="tabpanel">
+                <div class='repo'>
+                    <ul id='respondthisistargetID' class='emoticons' style='font-size:16px;'></ul>
+                </div>
+                <div class='emo_menu'>
+                    <ul id="category-filters" class="category-filters">
+                        <li><a id="filter-people" (click)="filterByCat('thisistargetID','people')" href="javascript:void(0);" class="active" title="People"><i class="icon-people"></i></a></li>
+                        <li><a id="filter-nature" (click)="filterByCat('thisistargetID','nature')"  href="javascript:void(0);" title="Nature"><i class="icon-nature"></i></a></li>
+                        <li><a id="filter-food" (click)="filterByCat('thisistargetID','food')" href="javascript:void(0);" title="Food and drink"><i class="icon-food"></i></a></li>
+                        <li><a id="filter-objects" (click)="filterByCat('thisistargetID','objects')" href="javascript:void(0);" title="Gadgets"><i class="icon-apple"></i></a></li>
+                        <li><a id="filter-activity" (click)="filterByCat('thisistargetID','activity')" href="javascript:void(0);" title="Activity"><i class="icon-activity"></i></a></li>
+                        <li><a id="filter-travel" (click)="filterByCat('thisistargetID','travel')" href="javascript:void(0);" title="Travel and places"><i class="icon-travel"></i></a></li>
+                        <li><a id="filter-flags" (click)="filterByCat('thisistargetID','flags')" href="javascript:void(0);" title="Flags"><i class="icon-flags"></i></a></li>
+                        <li><a id="filter-symbols" (click)="filterByCat('thisistargetID','symbols')" href="javascript:void(0);" title="Objects and symbols"><i class="icon-objects"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+   </div>
+
+
+    <div id='repo_jsonmd'>:womans_clothes:</div><button class='tclick'>click</button>
+    <p class='lk' id='md1' contenteditable="true" style='min-height:90px; background:#fff; border:1px solid #ddd;'>
+        input Any links to github.com here? If not, contact www.google.com 
+        :kiss:
+    </p>
+
+<div class='clearfix'></div><hr><div class='clearfix'></div>
+<div class='launch_emo' style='position:relative;'>
+
+    <button class='launchEmoPop' data-launch='1'>pop</button>
+<div class='emogiconTab'>
+	
+    <ul class='emo_title '>
+		<span>อารมณ์ <i class='icon-angle-right'></i></span>
+		<li class='active'><a href="#moreused" aria-controls="moreused" role="tab" data-toggle="tab">ที่ใช้บ่อย</a></li>
+		<li><a href="#emojiconlist" class='pre_emo' data-set="1" aria-controls="emojiconlist" role="tab" data-toggle="tab">สัญลักษณ์</a></li>
+	</ul>
+	<div class='response_emo tab-content'>
+		<div id='moreused' class='tab-pane active' role="tabpanel">
+		     <ul class='emoticons moreused1' id='moreused1' style='font-size:16px;'></ul>
+		</div>
+		<div id="emojiconlist" class='tab-pane' role="tabpanel">
+			<div class='repo'>
+			    <ul id='repo_json1' class='emoticons repo_json1' style='font-size:16px;'></ul>
+			</div>
+			<div class='emo_menu'>
+                <ul id="category-filters" class="category-filters 1" data-active='people'>
+                    <li><a id="filter-people" data-act='1' data-category="people" href="javascript:void(0);" class="active" title="People"><i class="icon-people"></i></a></li>
+                    <li><a id="filter-nature" data-act='1' data-category="nature" href="javascript:void(0);" title="Nature"><i class="icon-nature"></i></a></li>
+                    <li><a id="filter-food" data-act='1' data-category="food" href="javascript:void(0);" title="Food and drink"><i class="icon-food"></i></a></li>
+                    <li><a id="filter-objects" data-act='1' data-category="objects" href="javascript:void(0);" title="Gadgets"><i class="icon-apple"></i></a></li>
+                    <li><a id="filter-activity" data-act='1' data-category="activity" href="javascript:void(0);" title="Activity"><i class="icon-activity"></i></a></li>
+                    <li><a id="filter-travel" data-act='1' data-category="travel" href="javascript:void(0);" title="Travel and places"><i class="icon-travel"></i></a></li>
+                    <li><a id="filter-flags" data-act='1' data-category="flags" href="javascript:void(0);" title="Flags"><i class="icon-flags"></i></a></li>
+                    <li><a id="filter-symbols" data-act='1' data-category="symbols" href="javascript:void(0);" title="Objects and symbols"><i class="icon-objects"></i></a></li>
+                </ul>
+			</div>
+		</div>
+	</div>
+
+</div>
+</div>
+
+
+</div>

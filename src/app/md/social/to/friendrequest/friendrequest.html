@@ -1,0 +1,65 @@
+<div class='friendrequest_control'>
+    <div class='fixhead'>
+        <h2>จัดการคำขอ</h2>
+    </div>
+
+    <div class='resfriendlist' *ngIf="reqestFriend != ''"> 
+        <div class='topic'>คำขอ <button class='btn btn-default' (click)="acceptAll()">รับทุกคนเป็นเพื่อน</button></div>
+        <ul class='flist' *ngIf="acpAll == 0">
+            <li *ngFor="let row of reqestFriend">
+                <div class='friendlist'>
+                    <div class='friend_photo'>
+                        <img src='https://im.bazarn.com/50x50/{{row.avatar}}'>
+                    </div>
+                    <div class='friend_detail'> 
+                        <div class='friend_name'>{{row.first_name+' '+row.last_name}}</div>
+                        <btn_friend uid="{{row._id}}" type="request"></btn_friend>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <span *ngIf="acpAll == 1"> รับทุกคนเป็นเพื่อนเรียบร้อย </span>
+    </div>
+
+    <div class='resfriendlist'>
+        <div class='topic'>แนะนำเพื่อน <button  class='btn btn-default'>จัดการเพื่อน</button></div>
+        <ul class='flist'>
+
+            <li *ngFor="let row1 of alluser">
+                <div class='friendlist'>
+                    <div class='friend_photo'>
+                        <img src='https://im.bazarn.com/50x50/{{row1.avatar}}'>
+                    </div>
+                    <div class='friend_detail'>
+                        <div class='friend_name'>{{row1.first_name}}</div>
+                        <div class='friend_circle'>
+                            <span>มีเพื่อนร่วมกัน 2 คน</span> 
+                            <btn_friend uid="{{row1._id}}" type="addfriend"></btn_friend>
+                        </div>
+                    </div>
+                </div>
+            </li> 
+
+            <li *ngFor="let row of recommend">
+                <div class='friendlist'>
+                    <div class='friend_photo'>
+                        <img src='https://im.bazarn.com/50x50/{{row.avatar}}' *ngIf="row.avatar != '' || row.avatar != null">
+                        <img src='https://im.bazarn.com/50x50/assets/images/blank_user.png' *ngIf="row.avatar == '' || row.avatar == null">
+                    </div>
+                    <div class='friend_detail'>
+                        <div class='friend_name'>{{row.name}}</div>
+                        <div class='friend_circle'>
+                            <span *ngIf="row.friendNum > 0" >มีเพื่อนร่วมกัน {{row.friendNum}} คน</span>
+                            <button class='btn btn-sm btn-primary'>ขอเป็นเพื่อน</button>
+                            <button class='btn btn-sm btn-default'>ลบออก</button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+
+        </ul>
+    </div>
+
+
+</div>

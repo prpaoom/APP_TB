@@ -1,0 +1,272 @@
+<div *ngIf="type == 'listfriend'" class="chat-popup-list" [style.right]="position_right+'px'">
+        <ul>
+                <li *ngFor="let list of data" >
+                        <div (click)="selectList(list)" class='waitinfo'>
+                                <div class='waitav'><img src='https://im.bazarn.com/24x24/{{list.picture}}' width='24' height='24'></div>
+                                <div class='waitname'>{{list.name}}</div>
+                        </div>
+                        <button (click)="delBox(list.gid)" class="close">&times;</button>
+                </li>
+        </ul>
+</div>
+<div *ngIf="type == 'boxchat'" class="chat-popup" [style.right]="position_right+'px'" id='{{data.gid}}'>
+        
+        <header (click)="minBox(data.gid)">
+        </header>
+        <div class='name_head'><div class='name'>{{data.name}}</div> <button (click)="delBox(data.gid)" class='chat-popup-xc'><i class="fa fa-times"></i></button></div>
+        <button (click)="delBox(data.gid)" class='chat-popup-cc'><i class="fa fa-times"></i></button>
+        <button *ngIf="data.group_type == 'g'" class='chat-popup-cc posrel ' (click)="dropdownSetting(data.gid)"><i class="fa fa-cog"></i>
+                <ul [attr.class]='"setting_list s"+data.gid'>
+                        <li><a href='javascript:void(0);' class='plus_friend' (click)="findFriend(data.gid)">เพิ่มเพื่อน</a></li>
+                        <li><a href='javascript:void(0);' (click)="editNameEvent(data.gid)" data-id='7' >แก้ไขชื่อการสนทนา</a></li>
+                        <!--class="show-group-setting (click)="editNameEvent(data.gid)" class="show-friend-ingroup"-->
+                        <li><a href='javascript:void(0);'  (click)="editAddFriendEvent(data.gid)" data-id='7'>แก้ไขผู้มีส่วนร่วม</a></li>
+                </ul>
+        </button>
+        <button *ngIf="data.group_type == 'p'" class='chat-popup-cc plus_friend' (click)="findFriend(data.gid)"><i class="fa fa-user-plus"></i></button>
+        <div class='ichatwith'>
+                <div class='inchat'>
+                        <div class='av'><img [src]="data.group_type == 'p' ?  'https://im.bazarn.com/90x90/'+data.picture : getPicuteGroup(data.picture) "></div>
+                        <div class='inchat-detail'>
+                                <div class='hername'><a href='#'>{{data.name}}</a></div>
+                        </div>
+                </div>
+        </div>
+        
+        <div class='chatarea'>
+                
+                <!-- <div class='evt_res'>Notification of process</div> class='input_friend'    (keyup)="inputFriend(friendx,data.gid,data._id)" -->
+		<div  [attr.class]="'find_frined friend'+data.gid">
+			<input type='text' class='input_friend'  [(ngModel)]="friendx" (keyup)="inputFriend(friendx,data.gid,data._id)"  placeholder="ค้นหาเพื่อนเพื่อสร้างกลุ่ม">
+			<button  class='chat-popup-cp close_find_friend' (click)="closeFriend(data.gid)"><i class="fa fa-times"></i></button>
+			<ul [attr.class]="'myfriendlist friendlist'+data.gid">
+                                
+				<li *ngFor="let f of listFriend | filter:friendx"><img src='https://im.bazarn.com/90x90/{{f.picture}}'><div class='actionx'><div class='name'>{{f.name}}</div> <button (click)="addGroup(data._id,f._id)"><i class='fa fa-plus'></i></button></div></li>
+				<!--<li><img src='https://im.bazarn.com/90x90/uploads/avatar_56e273eff0d71dff138b4567_1668053170.jpg'><div class='actionx'><div class='name'>his / her name</div> <button><i class='fa fa-plus'></i></button></div></li>
+				<li><img src='https://im.bazarn.com/90x90/uploads/avatar_56e273eff0d71dff138b4567_1668053170.jpg'><div class='actionx'><div class='name'>his / her name</div> <button><i class='fa fa-plus'></i></button></div></li>
+				<li><img src='https://im.bazarn.com/90x90/uploads/avatar_56e273eff0d71dff138b4567_1668053170.jpg'><div class='actionx'><div class='name'>his / her name</div> <button><i class='fa fa-plus'></i></button></div></li>
+				<li><img src='https://im.bazarn.com/90x90/uploads/avatar_56e273eff0d71dff138b4567_1668053170.jpg'><div class='actionx'><div class='name'>his / her name</div> <button><i class='fa fa-plus'></i></button></div></li>-->
+			</ul>
+		</div>
+                <div [attr.class]="'msgsc boxchat'+data.gid" >
+                        
+                        <!-- sample my friend -->
+                        
+                        <span *ngFor="let chat of chatMessage;let last = last">
+                              
+                                <span *ngIf="last ? photoSwipe():''"></span>
+                                <!--{{last ? LoopFunction(last) : ''}}-->
+                                <div class='item-chat myfriend' *ngIf="chat.user_id != user_id && chat.post_type == 'text'">
+                                        <div class='chat_av'><img src='https://im.bazarn.com/90x90/{{chat.picture}}'></div>
+                                        <div class='messages'>
+                                                <div class='bubble'>
+                                                         <!--<span>{{decodeHtmlEntity(chat.content)}}</span>-->
+                                                        <dynamicHTML [src]="chat.content"> </dynamicHTML>
+                                                </div>
+                                                <div class='msg_date'>{{chat.post_time | timeAgo}}</div>
+                                                <!--<div class='msg_is_read' *ngIf="last"><i class="fa fa-check"></i>{{lastRead}}<span>อ่านแล้ว</span></div>-->
+                                        </div>
+                                </div>
+                                <div class='item-chat myfriend' *ngIf="chat.user_id != user_id && chat.post_type == 'image'">
+                                        <div class='chat_av'><img src='https://im.bazarn.com/90x90/{{chat.picture}}'></div>
+                                        <div class='messages gal'>
+                                                <div class='img-chat' *ngFor="let img of chat.content ">
+                                                       
+                                                        <div class='img'>
+                                                                <a [href]='serverSite+img'>
+                                                                <!--<a href='https://im.bazarn.com/676x676/{{img}}'>-->
+                                                                        <img [src]='serverSite+img'>
+                                                                        <!--<img src='https://im.bazarn.com/676x676/{{img}}'>-->
+                                                                </a>
+                                                        </div>
+                                                </div>
+                                                <div class='msg_date'>{{chat.post_time | timeAgo}}</div>
+                                                <!--<div class='msg_is_read' *ngIf="last"><i class="fa fa-check"></i>{{lastRead}}<span>อ่านแล้ว</span></div>-->
+                                        </div>
+                                </div>
+                                <div class='item-chat itsme' *ngIf="chat.user_id == user_id && chat.post_type == 'text'">
+                                        <div class='messages'>
+                                                <div class='bubble'>
+                                                        <!--<dynamicHTML [src]="chat.content"> </dynamicHTML>-->
+                                                        <dynamicHTML  [src]="chat.content"> </dynamicHTML>
+                                                        <!--<span>{{decodeHtmlEntity(chat.content)}}</span>-->
+                                                        
+                                                </div>
+                                                <div class='msg_date'>{{chat.post_time | timeAgo}}</div>
+                                                
+                                                <div class='msg_is_read' *ngIf="last && lastRead"><i class="fa fa-check"></i>{{lastRead}}<span>อ่านแล้ว</span></div>
+                                        </div>
+                                </div>
+                                <div class='item-chat itsme' *ngIf="chat.user_id == user_id && chat.post_type == 'image'">
+
+                                <div class='messages gal'>
+                                        <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+                                              
+                                                                <figure class="img-chat" *ngFor="let img of chat.content" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">        
+                                                                        <a [href]='serverSite+img.path' itemprop="contentUrl" class="img" [attr.data-size]="img.width+'x'+img.height">
+                                                                                <img [src]='serverSite+img.path' itemprop="thumbnail" alt="Image description">
+                                                                                <!--<img src='{{serverSite+chat.picture}}'>-->
+                                                                        </a>
+                                                                        <figcaption itemprop="caption description"></figcaption>  
+                                                                </figure>        
+                                                
+                                                
+                                        </div>  
+                                                                             
+                                        <div class='msg_date'>{{chat.post_time | timeAgo}}</div>
+                                        <div class='msg_is_read' *ngIf="last"><i class="fa fa-check"></i>{{lastRead}}<span>อ่านแล้ว</span></div>
+                                </div>
+                                
+                        </div>
+                        </span>
+
+
+
+
+
+                        
+                       
+                        <!--<div class='item-chat myfriend'>
+                                <div class='chat_av'><img src='https://im.bazarn.com/90x90/uploads/avatar_56e25920f0d71dae628b4567_874021808.jpeg'></div>
+                                <div class='messages'>
+                                        <div class='sendlink'>
+                                                <a href='https://www.bazarn.com' target='_blank'>link title</a>
+                                        </div>
+                                        <div class='msg_date'>วันนี้13:36</div>
+                                        <div class='msg_is_read'><i class="fa fa-check"></i>เหม่ง,ลิงกัง,เค็มจังโฮ <span>อ่านแล้ว</span></div>
+                                </div>
+                        </div>-->
+                        
+                        
+                        <!-- sample its me -->
+                        
+
+                        
+                        <!--<div class='item-chat itsme'>
+                                <div class='messages'>
+                                        <div class='sendlink'>
+                                                <a href='https://www.bazarn.com' target='_blank'>link title</a>
+                                        </div>
+                                        <div class='msg_date'>วันนี้13:36</div>
+                                        <div class='msg_is_read'><i class="fa fa-check"></i>เหม่ง,ลิงกัง,เค็มจังโฮ <span>อ่านแล้ว</span></div>
+                                </div>
+                        </div>-->
+                        <div id="endMsg"></div>
+                        <!--<div class='' style='position:relative'>
+                                
+                        </div>-->
+                </div>
+        </div>
+        
+        <div class='chat_form'>
+		<div class='chat_text_cv'>
+                        
+			<div [attr.class]="'chat_text_input filterLinkT chatboxp  input'+data.gid "  contenteditable="true" (keyup)="fucusInput()" (click)="checkRead()" [attr.id]="'sendMessage'+data.gid" [attr.data-id]="data.gid" (keypress)="sendMessage($event)" data-placeholder='พิมพ์ข้อความ...'></div>
+		</div>
+                <!-- filterLinkT [textContent]="message" (input)="message=$event.target.textContent"-->
+	</div> 
+	<div class='chat_control'>
+                <div class='loaderx' *ngIf="messageLoad?.fucus && messageLoad?.user_id != user_id && messageLoad?.gid == data.gid">
+                        <div class='dot'></div>
+                        <div class='dot'></div>
+                        <div class='dot'></div>
+                </div>
+		<button class='box_ctrl upphoto' (click)="uploadEvent(data.gid)"><i class="fa fa-camera-retro"></i></button>
+		<div class='dropup_emo'>
+		<button [attr.class]="'box_ctrl  dropup-opener emoj' + data.gid" (click)="openEmo(data.gid)"><i class="fa fa-smile-o"></i></button>
+			<div [attr.class]="'emo-menu  emo_arr emo-open'+data.gid">
+				<!--<div class='inner_gray'>อารมณ์ <a href="javascript:void(0);" class="emo-menu_close" role="button" title="Close">&times;</a></div>-->
+                                <emojione [target]="data.gid"></emojione>
+                                <!--<div class='inner_body'>
+                                        <div class='inner_body_content p12'></div>
+                                </div>-->
+			</div>
+                         
+                       
+		</div>
+		<div class='dropup_stk'>
+			<button class='box_ctrl right stk dropup-opener'><i class="fa fa-heart"></i></button>
+			<ul class="ddx-menu menu_arr">
+				<li><a href="#">B</a></li>
+                                <li><a href="#">S</a></li>
+                                <li><a href="#">S</a></li>
+                                <li><a href="#">C</a></li>
+                                <li><a href="#">E</a></li>
+                                <li><a href="#">B</a></li>
+                                <li><a href="#">U</a></li>
+                                <li><a href="#">R</a></li>
+                                <li><a href="#">U</a></li>
+                        </ul>
+		</div>
+	</div>
+</div>
+
+<div class='Genmd'></div>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element, as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+        <!-- don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+                
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+    
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+          </div>
+
+        </div>
+
+</div>

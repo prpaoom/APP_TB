@@ -1,0 +1,90 @@
+<NavBar></NavBar>
+<recommend_friend></recommend_friend>
+<div class='sl_container'>
+   <div class='sl_left' [ngClass]="{sl_left_show:! visible,sl_left_hide: visible ,sl_display: mldisplay}">
+       <leftMenu></leftMenu>
+   </div>
+  
+   <div class='sl_center'>
+       <router-outlet></router-outlet>
+   </div>
+    
+</div>
+
+
+<div class='nav_chat' [ngClass]="{nav_chat_show:! chatvisible,nav_chat_hide: chatvisible,nav_chat_display: mrdisplay}">
+    <navchat (dataChat)="selectList($event)"></navchat>
+</div>
+<div *ngIf="ModalSearchisEnable" class="modal fade show in" aria-hidden="true" @flyInOut="'in'">
+    <div class='BackdropWbg'>
+        <div class='inner'>
+            <button type="button" class="close_md btn btn-default" (click)="hideDialog()">&times;</button>
+            <div class='md_content'>
+                <md-search></md-search>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="ModalFriendReqisEnable" class="modal fade show in" aria-hidden="true" @flyInOut="'in'">
+    <div class='BackdropWbg'>
+        <div class='inner'>
+            <button type="button" class="close_md btn btn-default" (click)="hideDialog()">&times;</button>
+            <div class='md_content'>
+                <md-friendrequest></md-friendrequest>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="ModalNotificationListisEnable" class="modal fade show in" aria-hidden="true" @flyInOut="'in'">
+    <div class='BackdropWbg'>
+        <div class='inner'>
+            <button type="button" class="close_md btn btn-default" (click)="hideDialog()">&times;</button>
+            <div class='md_content'>
+                <md-notificationlist></md-notificationlist>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="ModalBazarnproductsisEnable" class="modal fade show in" aria-hidden="true" @flyInOut="'in'">
+    <div class='BackdropWbg'>
+        <div class='inner'>
+            <button type="button" class="close_md btn btn-default" (click)="hideDialog()">&times;</button>
+            <div class='md_content'>
+                <md-bazarnproducts></md-bazarnproducts>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="ModalMyshoppingcartisEnable" class="modal fade show in" aria-hidden="true" @flyInOut="'in'">
+    <div class='BackdropWbg'>
+        <div class='inner'>
+            <button type="button" class="close_md btn btn-default" (click)="hideDialog()">&times;</button>
+            <div class='md_content'>
+                <md-myshoppingcart></md-myshoppingcart>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        This is Modal Test original from Bootstrap 3
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Modal -->
